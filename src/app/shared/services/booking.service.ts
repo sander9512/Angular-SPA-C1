@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class BookingsService {
-  private booking: Booking[] = [
+  private bookings: Booking[] = [
     new Booking(
       'Sporty Times',
       'Mr. De Groot',
@@ -37,11 +37,11 @@ export class BookingsService {
     )
   ];
 
-  getBooking() {
-    return this.booking.slice();
+  getBookings() {
+    return this.bookings.slice();
   }
 
   getBooking(index: number) {
-    return this.booking[index];
+    return this.bookings[index];
   }
 }
