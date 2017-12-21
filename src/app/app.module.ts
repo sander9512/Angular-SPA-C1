@@ -14,6 +14,7 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { BookingListComponent } from './bookings/booking-list/booking-list.component';
 import { BookingItemComponent } from './bookings/booking-list/booking-item/booking-item.component';
 import {AppRoutingModule} from './app-routing.module';
+import {BookingsService} from './shared/services/booking.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import {AppRoutingModule} from './app-routing.module';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [SportsHallsService],
+  providers: [SportsHallsService, BookingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

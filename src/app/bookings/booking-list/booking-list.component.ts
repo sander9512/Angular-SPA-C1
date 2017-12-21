@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Booking} from '../../shared/models/booking.model';
+import {BookingsService} from '../../shared/services/booking.service';
 
 @Component({
   selector: 'app-booking-list',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./booking-list.component.css']
 })
 export class BookingListComponent implements OnInit {
+  bookings: Booking[];
 
-  constructor() { }
+  constructor(private bookingsService: BookingsService) { }
 
   ngOnInit() {
+    this.bookings = this.bookingsService.getBookings();
   }
 
 }
