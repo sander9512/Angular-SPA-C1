@@ -10,6 +10,9 @@ import { SportshallItemComponent } from './sportshalls/sportshall-list/sportshal
 import {SportsHallsService} from './shared/services/sportshall.service';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
+import { BookingsComponent } from './bookings/bookings.component';
+import { BookingListComponent } from './bookings/booking-list/booking-list.component';
+import { BookingItemComponent } from './bookings/booking-list/booking-item/booking-item.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import {FormsModule} from '@angular/forms';
     SportshallsComponent,
     SportshallListComponent,
     SportshallItemComponent,
+    BookingsComponent,
+    BookingListComponent,
+    BookingItemComponent,
   ],
   imports: [
     BrowserModule,
