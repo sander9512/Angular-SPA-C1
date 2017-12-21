@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
 import { BookingsComponent } from './bookings/bookings.component';
 import { BookingListComponent } from './bookings/booking-list/booking-list.component';
 import { BookingItemComponent } from './bookings/booking-list/booking-item/booking-item.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BookingItemComponent } from './bookings/booking-list/booking-item/booki
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [SportsHallsService],
   bootstrap: [AppComponent]
