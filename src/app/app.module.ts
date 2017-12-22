@@ -13,6 +13,8 @@ import {FormsModule} from '@angular/forms';
 import { BookingsComponent } from './bookings/bookings.component';
 import { BookingListComponent } from './bookings/booking-list/booking-list.component';
 import { BookingItemComponent } from './bookings/booking-list/booking-item/booking-item.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { BookingItemComponent } from './bookings/booking-list/booking-item/booki
     BookingsComponent,
     BookingListComponent,
     BookingItemComponent,
+    SignupComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
