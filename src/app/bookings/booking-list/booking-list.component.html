@@ -1,3 +1,9 @@
-<p>
-  booking-list works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <app-booking-item
+      *ngFor="let bookingEl of bookings; let i of index"
+      [booking]="bookingEl"
+      [index]="i">
+    </app-booking-item>
+  </div>
+</div>
