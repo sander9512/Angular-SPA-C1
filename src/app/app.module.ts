@@ -13,14 +13,11 @@ import {FormsModule} from '@angular/forms';
 import { BookingsComponent } from './bookings/bookings.component';
 import { BookingListComponent } from './bookings/booking-list/booking-list.component';
 import { BookingItemComponent } from './bookings/booking-list/booking-item/booking-item.component';
-<<<<<<< HEAD
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
-=======
 import {AppRoutingModule} from './app-routing.module';
 import {BookingsService} from './shared/services/booking.service';
 import { SportshallDetailComponent } from './sportshalls/sportshall-detail/sportshall-detail.component';
->>>>>>> origin/dev
 
 @NgModule({
   declarations: [
@@ -34,12 +31,9 @@ import { SportshallDetailComponent } from './sportshalls/sportshall-detail/sport
     BookingsComponent,
     BookingListComponent,
     BookingItemComponent,
-<<<<<<< HEAD
     SignupComponent,
     SigninComponent,
-=======
     SportshallDetailComponent,
->>>>>>> origin/dev
   ],
   imports: [
     BrowserModule,
