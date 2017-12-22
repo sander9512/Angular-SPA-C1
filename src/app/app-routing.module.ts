@@ -5,12 +5,16 @@ import { Booking } from './shared/models/booking.model';
 import {SportshallsComponent} from './sportshalls/sportshalls.component';
 import {BookingsComponent} from './bookings/bookings.component';
 import {SportshallDetailComponent} from './sportshalls/sportshall-detail/sportshall-detail.component';
+import {SigninComponent} from './auth/signin/signin.component';
+import {SignupComponent} from './auth/signup/signup.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/sportshalls', pathMatch: 'full' },
   { path: 'halls/:id', component: SportshallDetailComponent},
   { path: 'sportshalls', component: SportshallsComponent, children: []},
-  { path: 'bookings', component: BookingsComponent, children: []}
+  { path: 'bookings', component: BookingsComponent, children: []},
+  { path: 'login', component: SigninComponent},
+  { path: 'signup', component: SignupComponent}
 ];
 
 @NgModule({
