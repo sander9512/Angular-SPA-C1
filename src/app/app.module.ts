@@ -15,6 +15,7 @@ import { BookingListComponent } from './bookings/booking-list/booking-list.compo
 import { BookingItemComponent } from './bookings/booking-list/booking-item/booking-item.component';
 import {AppRoutingModule} from './app-routing.module';
 import {BookingsService} from './shared/services/booking.service';
+import { SportshallDetailComponent } from './sportshalls/sportshall-detail/sportshall-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {BookingsService} from './shared/services/booking.service';
     BookingsComponent,
     BookingListComponent,
     BookingItemComponent,
+    SportshallDetailComponent,
   ],
   imports: [
     BrowserModule,
