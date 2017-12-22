@@ -1,15 +1,21 @@
-<div class="row">
-  <div class="col-xs-12">
+<div align="center" class="row">
+  <div class="col-xs-12" id="headText">
+    <div class="container">
+      <h1>Registreren</h1>
+      <p>Vul hier onder uw gegevens in om een account aan te maken</p>
+    </div>
     <form (ngSubmit)="onSignup(f)" #f="ngForm">
       <div class="form-group">
-        <label for="email">Mail</label>
+        <label for="email">E-mail</label>
         <input type="email" id="email" name="email" ngModel class="form-control">
       </div>
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password" id="password" name="password" ngModel class="form-control">
       </div>
-      <button class="btn btn-primary" type="submit">Sign Up</button>
+      <button class="btn btn-primary" type="submit" id>Sign Up</button>
+      <p>Al een account?</p>
+      <p>Klik <a routerLink="/login">Hier</a> om in te loggen</p>
     </form>
   </div>
 </div>
