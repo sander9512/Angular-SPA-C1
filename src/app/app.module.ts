@@ -9,7 +9,7 @@ import { SportshallListComponent } from './sportshalls/sportshall-list/sportshal
 import { SportshallItemComponent } from './sportshalls/sportshall-list/sportshall-item/sportshall-item.component';
 import {SportsHallsService} from './shared/services/sportshall.service';
 import {HttpModule} from '@angular/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BookingsComponent } from './bookings/bookings.component';
 import { BookingListComponent } from './bookings/booking-list/booking-list.component';
 import { BookingItemComponent } from './bookings/booking-list/booking-item/booking-item.component';
@@ -17,6 +17,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import {AppRoutingModule} from './app-routing.module';
 import {BookingsService} from './shared/services/booking.service';
+import {UserService} from './shared/services/user.service';
 import { SportshallDetailComponent } from './sportshalls/sportshall-detail/sportshall-detail.component';
 
 @NgModule({
@@ -38,10 +39,11 @@ import { SportshallDetailComponent } from './sportshalls/sportshall-detail/sport
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule
   ],
-  providers: [SportsHallsService, BookingsService],
+  providers: [SportsHallsService, BookingsService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

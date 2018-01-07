@@ -4,19 +4,40 @@
       <h1>Registreren</h1>
       <p>Vul hier onder uw gegevens in om een account aan te maken</p>
     </div>
-    <form (ngSubmit)="onSignup(f)" #f="ngForm">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
       <div class="form-group">
         <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" ngModel class="form-control">
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-control">
       </div>
+
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" ngModel class="form-control">
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          class="form-control">
       </div>
-      <button class="btn btn-primary" type="submit" id>Sign Up</button>
+
+      <div class="form-group">
+        <label for="role">Role</label>
+          <select
+            [ngModel]="selectedRole"
+            (ngModelChange)="onChangeRole($event)"
+            [ngModelOptions]="{standalone: true}">
+              <option [ngValue]="i" *ngFor="let i of roles">{{ i.name }}</option>
+          </select>
+      </div>
+
+      <button
+        class="btn btn-primary"
+        [disabled]="!signUpForm.valid">Sign Up</button>
       <p>Al een account?</p>
       <p>Klik <a routerLink="/login">Hier</a> om in te loggen</p>
     </form>
   </div>
 </div>
-

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Role } from '../../shared/models/role.model'
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -8,14 +10,40 @@ import {NgForm} from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  editMode = false;
+  signUpForm: FormGroup;
+  roles = [
+    new Role(1, 'Personeel'),
+    new Role(2, 'Verhuurder')
+  ];
+  selectedRole: Role;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.selectedRole = this.roles[1];
+    this.editMode != null;
+    this.initForm();
   }
 
-  onSignup(form: NgForm) {
-  const email = form.value.email;
-  const password = form.value.password;
+  onSignUp() {
+    console.log(this.selectedRole);
+  }
+
+  onChangeRole(role) {
+    this.selectedRole = role;
+  }
+
+  private initForm() {
+    let userEmail = '';
+    let userPassword = '';
+    let userRole = '';
+
+    this.signUpForm = new FormGroup({
+      'email': new FormControl(userEmail, Validators.required),
+      'password': new FormControl(userPassword, Validators.required),
+      'role': new FormControl(userRole)
+    });
   }
 
 }

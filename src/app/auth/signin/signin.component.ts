@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from  '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -7,15 +8,29 @@ import {NgForm} from  '@angular/forms';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
+  editMode = false;
+  signInForm: FormGroup;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.editMode != null;
+    this.initForm();
   }
 
-  onSignin(form: NgForm) {
-    const email = form.value.email;
-    const password = form.value.password;
+  onSignIn() {
+
   }
 
-}
+  private initForm() {
+    let userEmail = '';
+    let userPassword = '';
+
+    this.signInForm = new FormGroup({
+      'email': new FormControl(userEmail, Validators.required),
+      'password': new FormControl(userPassword, Validators.required)
+    });
+  }
+
+  }
