@@ -11,7 +11,8 @@
         <li routerLinkActive="active"><a routerLink="/employees">Personeel</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li routerLinkActive="active"><a routerLink="/login">Log in</a></li>
+        <li routerLinkActive="active" *ngIf="!userService.isAuthenticated()"><a routerLink="/login">Login</a></li>
+        <li (click)="logOut()" *ngIf="userService.isAuthenticated()"><a routerLink="/sportshalls">Logout</a></li>
         <li
           class="dropdown"
           appDropdown>

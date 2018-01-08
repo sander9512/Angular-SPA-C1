@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Role } from '../../shared/models/role.model'
+import { Role } from '../../shared/models/role.model';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import {UserService} from '../../shared/services/user.service';
+import {User} from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +20,7 @@ export class SignupComponent implements OnInit {
   ];
   selectedRole: Role;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit() {
     this.selectedRole = this.roles[1];
@@ -27,7 +29,11 @@ export class SignupComponent implements OnInit {
   }
 
   onSignUp() {
-    console.log(this.selectedRole);
+    const value = this.signUpForm.value;
+    const user = new User({'_email': value.email, '_password': value.password, '_role': this.selectedRole.name});
+    console.log(user);
+    this.userService.register(user);
+    this.signUpForm.reset();
   }
 
   onChangeRole(role) {
