@@ -2,22 +2,18 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1>{{ sportsHall.name }}</h1>
+    <h1>{{ hall.name }}</h1> <button type="button" class="btn btn-primary" (click)="editTimes()">Wijzig openingstijden</button>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
     <h4>Description</h4>
-    <!--{{ sportsHall.description }}-->
+    {{ hall.description }}
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
-    <ul class="list-group">
-      <li
-        class="list-group-item">
-        <!--Tijden weergeven-->
-      </li>
-    </ul>
+  <h2>Opkomende boekingen</h2>
+  <div class="col-xs-8">
+  <app-booking-list></app-booking-list>
   </div>
 </div>

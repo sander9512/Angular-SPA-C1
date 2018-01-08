@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SportsHall} from '../../../shared/models/sportshall.model';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-sportshall-item',
@@ -9,7 +10,7 @@ import {SportsHall} from '../../../shared/models/sportshall.model';
 export class SportshallItemComponent implements OnInit {
   @Input() sportsHall: SportsHall;
   @Input() index: number;
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
   }

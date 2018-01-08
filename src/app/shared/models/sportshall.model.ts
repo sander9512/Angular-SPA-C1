@@ -19,13 +19,13 @@ export class SportsHall {
   private _activities: Activity[];
 
 
-  constructor(name: string, city: string, street: string, houseNumber: string, phone: string) {
-    this._name = name;
-    this._city = city;
-    this._street = street;
-    this._houseNumber = houseNumber;
-    this._phone = phone;
-  }
+  // constructor(name: string, city: string, street: string, houseNumber: string, phone: string) {
+  //   this._name = name;
+  //   this._city = city;
+  //   this._street = street;
+  //   this._houseNumber = houseNumber;
+  //   this._phone = phone;
+  // }
 
 
   get id(): number {
@@ -131,7 +131,7 @@ export class SportsHall {
   set activities(value: Activity[]) {
     this._activities = value;
   }
-  // constructor(values: Object = {}) {
-  //   Object.assign(this, values);
-  // }
+  constructor(values: Object = {}) {
+    Object.assign(this, values);
+  }
 }

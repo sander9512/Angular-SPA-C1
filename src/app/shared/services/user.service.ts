@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {environment} from '../../../environments/environment';
 import {User} from '../models/user.model';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class UserService {
@@ -9,7 +10,7 @@ export class UserService {
   private serverUrl = environment.serverUrl;
   private token = '';
   private user: User;
-  constructor(private http: Http) { }
+  constructor(private http: Http, private router: Router) { }
 
 
   public register(user: User): Promise<string> {
@@ -35,6 +36,7 @@ export class UserService {
         console.log(this.token);
         console.log(authUser);
         this.user = authUser;
+        this.router.navigate(['/']);
         return authUser as User;
       })
       .catch(error => {

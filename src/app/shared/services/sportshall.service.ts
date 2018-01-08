@@ -11,36 +11,36 @@ export class SportsHallsService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.serverUrl + '/halls'; // URL to web api
   private halls: SportsHall[];
-  private sportsHalls: SportsHall[] = [
-    new SportsHall(
-        'Sporty Times',
-        'Breda',
-        'Hoofdstraat',
-        '12a',
-        '0761234567'
-    ),
-    new SportsHall(
-      'Time2Bfit',
-      'Breda',
-      'Anderstraat',
-      '13a',
-      '0760234567'
-    ),
-    new SportsHall(
-      'RIP fat',
-      'Tilburg',
-      'Tilburgsteeg',
-      '6c',
-      '0611234567'
-    )
-  ];
+  // private sportsHalls: SportsHall[] = [
+  //   new SportsHall(
+  //       'Sporty Times',
+  //       'Breda',
+  //       'Hoofdstraat',
+  //       '12a',
+  //       '0761234567'
+  //   ),
+  //   new SportsHall(
+  //     'Time2Bfit',
+  //     'Breda',
+  //     'Anderstraat',
+  //     '13a',
+  //     '0760234567'
+  //   ),
+  //   new SportsHall(
+  //     'RIP fat',
+  //     'Tilburg',
+  //     'Tilburgsteeg',
+  //     '6c',
+  //     '0611234567'
+  //   )
+  // ];
 
   constructor(private http: Http) {
   }
-  getSportsHalls() {
-    return this.sportsHalls.slice();
-  }
-  _getSportsHalls(): Promise<SportsHall[]> {
+  // _getSportsHalls() {
+  //   return this.sportsHalls.slice();
+  // }
+  getSportsHalls(): Promise<SportsHall[]> {
     return this.http.get(this.serverUrl, {headers: this.headers})
       .toPromise()
       .then(response => {
@@ -53,10 +53,12 @@ export class SportsHallsService {
         return Promise.reject(error.message || error);
       });
   }
-  _getSportsHall(id: number): Promise<SportsHall> {
+  getSportsHall(id: number): Promise<SportsHall> {
+    console.log('id', id);
     return this.http.get(this.serverUrl + '/' + id, {headers: this.headers})
       .toPromise()
       .then(response => {
+        console.log(response);
         return response.json() as SportsHall;
       })
       .catch(error => {
@@ -65,7 +67,7 @@ export class SportsHallsService {
       });
   }
 
-  getSportsHall(index: number) {
-    return this.sportsHalls[index];
-  }
+  // _getSportsHall(index: number) {
+  //   return this.sportsHalls[index];
+  // }
 }
