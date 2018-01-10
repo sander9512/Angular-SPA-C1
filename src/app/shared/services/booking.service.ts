@@ -45,6 +45,7 @@ export class BookingsService {
   // ];
   constructor(private http: Http) {
   }
+
   getBookings(): Promise<Booking[]> {
     return this.http.get(this.serverUrl, {headers: this.headers})
       .toPromise()
@@ -55,6 +56,20 @@ export class BookingsService {
       })
       .catch(error => {
         console.log('handleError');
+        return Promise.reject(error.message || error);
+      });
+  }
+
+  getBooking(id: number): Promise<Booking> {
+    console.log('id', id);
+    return this.http.get(this.serverUrl + '/' + id, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.log(response);
+        return response.json() as Booking;
+      })
+      .catch(error => {
+        console.log(error);
         return Promise.reject(error.message || error);
       });
   }

@@ -18,12 +18,15 @@ export class BookingDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.id = +params['id'];
-          this.booking = this.bookingsService.getBooking(this.id);
-        }
-      );
+      .subscribe(params => {
+        this.id = params['id'];
+        this.bookingsService.getBooking(this.id)
+          .then(booking => {
+            this.booking = booking;
+            console.log(booking);
+          })
+          .catch(error => console.log(error));
+      });
   }
 
 }
