@@ -21,6 +21,7 @@ import {UserService} from './shared/services/user.service';
 import { SportshallDetailComponent } from './sportshalls/sportshall-detail/sportshall-detail.component';
 import { SportshallTimeItemComponent } from './sportshalls/sportshall-time-item/sportshall-time-item.component';
 import { BookingItemSmallComponent } from './bookings/booking-item-small/booking-item-small.component';
+import { BookingDetailComponent } from './bookings/booking-detail/booking-detail.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { BookingItemSmallComponent } from './bookings/booking-item-small/booking
     SportshallDetailComponent,
     SportshallTimeItemComponent,
     BookingItemSmallComponent,
+    BookingDetailComponent,
   ],
   imports: [
     BrowserModule,
