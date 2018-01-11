@@ -10,10 +10,12 @@ import {SignupComponent} from './auth/signup/signup.component';
 import {BookingListComponent} from './bookings/booking-list/booking-list.component';
 import {BookingDetailComponent} from './bookings/booking-detail/booking-detail.component';
 import {MaintenanceComponent} from './maintenance/maintenance.component';
+import {MaintenanceNewComponent} from './maintenance/maintenance-new/maintenance-new.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/sportshalls', pathMatch: 'full' },
   { path: 'halls/:id', component: SportshallDetailComponent},
+  { path: 'halls/:id/new-maintenance', component: MaintenanceNewComponent},
   { path: 'maintenance', component: MaintenanceComponent},
   { path: 'sportshalls', component: SportshallsComponent, children: []},
   { path: 'bookings', component: BookingsComponent, children: [

@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h2>Nieuw onderhoud opgeven</h2>
+      <form [formGroup]="form" (ngSubmit)="onMaintenanceSubmit()">
+        <div id="maintenance-data">
+          <div class="form-group">
+            <label for="date">Datum</label>
+            <input type="date"
+                   id="date"
+                   formControlName="date"
+                   class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="startTime">Onderhoud start</label>
+            <input type="time"
+                   placeholder="HH:mm"
+                   min="07:00"
+                   max="24:00"
+                   id="startTime"
+                   formControlName="startTime"
+                   class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="endTime">Onderhoud eindtijd</label>
+            <input type="time"
+                   id="endTime"
+                   formControlName="endTime"
+                   class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="type">Onderhoud type</label>
+            <select class="form-control" id="type" [formControlName]="type">
+              <option>Zaalobject</option>
+              <option>Faciliteit</option>
+              <option>Zaal</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="object">Onderhoud op</label>
+            <select class="form-control" id="object" [formControlName]="object">
+              <!--<option *ngFor="let object of objects"> {{object.name}}</option>-->
+              <option>Basketbal</option>
+              <option>Zaalhockey</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="desc">Onderhoud beschrijving</label>
+            <input type="text"
+                   id="desc"
+                   formControlName="description"
+                   class="form-control">
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SportsHall} from '../../shared/models/sportshall.model';
 import {SportsHallsService} from '../../shared/services/sportshall.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {BookingsService} from '../../shared/services/booking.service';
 import {Booking} from '../../shared/models/booking.model';
 
@@ -14,7 +14,7 @@ export class SportshallDetailComponent implements OnInit {
   hall: SportsHall = new SportsHall();
   bookings: Booking[];
   id = 0;
-  constructor(private hallService: SportsHallsService, private bookingService: BookingsService, private route: ActivatedRoute) { }
+  constructor(private hallService: SportsHallsService, private bookingService: BookingsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -35,5 +35,9 @@ export class SportshallDetailComponent implements OnInit {
   }
 
   editTimes() {
+  }
+
+  onMaintenance() {
+  this.router.navigate(['new-maintenance'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
 }
