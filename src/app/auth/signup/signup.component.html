@@ -32,6 +32,15 @@
               <option [ngValue]="i" *ngFor="let i of roles">{{ i.name }}</option>
           </select>
       </div>
+      <div class="form-group" *ngIf="selectedRole.name === 'Verhuurder'">
+        <label for="account">Link verhuurder</label>
+        <select id="account"
+        [ngModel]="selectedAccount"
+        (ngModelChange)="onChangeAccount($event)"
+        [ngModelOptions]="{standalone: true}">
+          <option [ngValue]="i" *ngFor="let i of proprietors">{{ i.name }}</option>
+        </select>
+      </div>
 
       <button
         class="btn btn-primary"

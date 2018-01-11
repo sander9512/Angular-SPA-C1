@@ -59,6 +59,19 @@ export class BookingsService {
         return Promise.reject(error.message || error);
       });
   }
+  getBookingsWithHall(hallID: number): Promise<Booking[]> {
+    return this.http.get(this.serverUrl + '/hall/' + hallID, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.dir(response.json());
+        this.bookings = response.json() as Booking[];
+        return this.bookings;
+      })
+      .catch(error => {
+        console.log('handleError');
+        return Promise.reject(error.message || error);
+      });
+  }
 
   getBooking(id: number): Promise<Booking> {
     console.log('id', id);

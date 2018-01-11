@@ -53,6 +53,19 @@ export class SportsHallsService {
         return Promise.reject(error.message || error);
       });
   }
+  getHallsWithOwner(id: number): Promise<SportsHall[]> {
+    return this.http.get(this.serverUrl + '/proprietor/' + id, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.dir(response.json());
+        this.halls = response.json() as SportsHall[];
+        return this.halls;
+      })
+      .catch(error => {
+        console.log('handleError');
+        return Promise.reject(error.message || error);
+      });
+  }
   getSportsHall(id: number): Promise<SportsHall> {
     console.log('id', id);
     return this.http.get(this.serverUrl + '/' + id, {headers: this.headers})

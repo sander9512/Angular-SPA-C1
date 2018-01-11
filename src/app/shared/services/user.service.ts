@@ -10,6 +10,7 @@ export class UserService {
   private serverUrl = environment.serverUrl;
   private token = '';
   private user: User;
+  private proprietor: {id: number, name: string};
   constructor(private http: Http, private router: Router) { }
 
 

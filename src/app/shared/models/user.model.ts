@@ -3,6 +3,7 @@ export class User {
   private _email: string;
   private _password: string;
   private _role: string;
+  private _propID: number;
 
   get email(): string {
     return this._email;
@@ -26,6 +27,15 @@ export class User {
 
   set role(value: string) {
     this._role = value;
+  }
+
+
+  get propID(): number {
+    return this._propID;
+  }
+
+  set propID(value: number) {
+    this._propID = value;
   }
 
   constructor(values: Object = {}) {

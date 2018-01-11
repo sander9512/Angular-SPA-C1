@@ -22,6 +22,7 @@ import { SportshallDetailComponent } from './sportshalls/sportshall-detail/sport
 import { SportshallTimeItemComponent } from './sportshalls/sportshall-time-item/sportshall-time-item.component';
 import { BookingItemSmallComponent } from './bookings/booking-item-small/booking-item-small.component';
 import { BookingDetailComponent } from './bookings/booking-detail/booking-detail.component';
+import {ProprietorService} from './shared/services/proprietor.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { BookingDetailComponent } from './bookings/booking-detail/booking-detail
     HttpModule,
     AppRoutingModule
   ],
-  providers: [SportsHallsService, BookingsService, UserService],
+  providers: [SportsHallsService, BookingsService, UserService, ProprietorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

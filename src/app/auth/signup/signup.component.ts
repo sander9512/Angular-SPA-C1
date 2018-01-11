@@ -4,6 +4,9 @@ import { Role } from '../../shared/models/role.model';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import {UserService} from '../../shared/services/user.service';
 import {User} from '../../shared/models/user.model';
+import {ProprietorService} from '../../shared/services/proprietor.service';
+import {Proprietor} from '../../shared/models/proprietor.model';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-signup',
@@ -19,18 +22,37 @@ export class SignupComponent implements OnInit {
     new Role(2, 'Verhuurder')
   ];
   selectedRole: Role;
+  proprietors: Proprietor[];
+  subscription: Subscription;
+  prop: Proprietor;
+  selectedAccount: Proprietor;
 
-  constructor(private route: ActivatedRoute, private userService: UserService) { }
+  constructor(private route: ActivatedRoute, private userService: UserService, private propService: ProprietorService) { }
 
   ngOnInit() {
     this.selectedRole = this.roles[1];
     this.editMode != null;
     this.initForm();
+    this.subscription = this.propService.proprietorsChanged
+      .subscribe(
+        (props: Proprietor[]) => {
+          this.proprietors = props;
+        }
+      );
+    this.propService.getProprietors()
+      .then(props => {
+        this.proprietors = props;
+      })
+      .catch(error => console.log(error));
   }
 
   onSignUp() {
     const value = this.signUpForm.value;
-    const user = new User({'_email': value.email, '_password': value.password, '_role': this.selectedRole.name});
+    console.log('account', value.account);
+    const user = new User({'_email': value.email, '_password': value.password, '_role': this.selectedRole.name, '_propID': this.selectedAccount.id});
+    if (user.role === 'Personeel') {
+      user.propID = null;
+    }
     console.log(user);
     this.userService.register(user);
     this.signUpForm.reset();
@@ -39,11 +61,15 @@ export class SignupComponent implements OnInit {
   onChangeRole(role) {
     this.selectedRole = role;
   }
+  onChangeAccount(account) {
+  this.selectedAccount = account;
+  console.log('selectedacc', this.selectedAccount);
+  }
 
   private initForm() {
-    let userEmail = '';
-    let userPassword = '';
-    let userRole = '';
+    const userEmail = '';
+    const userPassword = '';
+    const userRole = '';
 
     this.signUpForm = new FormGroup({
       'email': new FormControl(userEmail, Validators.required),
