@@ -26,6 +26,8 @@ import {ProprietorService} from './shared/services/proprietor.service';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { MaintenanceListComponent } from './maintenance/maintenance-list/maintenance-list.component';
 import { MaintenanceItemComponent } from './maintenance/maintenance-list/maintenance-item/maintenance-item.component';
+import {MaintenanceService} from './shared/services/maintenance.service';
+import {ClosingDayService} from './shared/services/closingday.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { MaintenanceItemComponent } from './maintenance/maintenance-list/mainten
     HttpModule,
     AppRoutingModule
   ],
-  providers: [SportsHallsService, BookingsService, UserService, ProprietorService],
+  providers: [SportsHallsService, BookingsService, UserService, ProprietorService,
+    MaintenanceService, ClosingDayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
