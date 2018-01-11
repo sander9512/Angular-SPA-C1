@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-xs-12">
+    <app-maintenance-item
+      *ngFor="let maintenanceEl of maintenances; let i of index"
+      [maintenance]="maintenanceEl"
+      [index]="i">
+    </app-maintenance-item>
+  </div>
+</div>

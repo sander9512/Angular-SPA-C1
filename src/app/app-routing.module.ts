@@ -9,10 +9,12 @@ import {SigninComponent} from './auth/signin/signin.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {BookingListComponent} from './bookings/booking-list/booking-list.component';
 import {BookingDetailComponent} from './bookings/booking-detail/booking-detail.component';
+import {MaintenanceComponent} from './maintenance/maintenance.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/sportshalls', pathMatch: 'full' },
   { path: 'halls/:id', component: SportshallDetailComponent},
+  { path: 'maintenance', component: MaintenanceComponent},
   { path: 'sportshalls', component: SportshallsComponent, children: []},
   { path: 'bookings', component: BookingsComponent, children: [
     { path: '', component: BookingListComponent },

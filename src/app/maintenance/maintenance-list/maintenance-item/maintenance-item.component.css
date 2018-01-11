@@ -1,0 +1,26 @@
+.container {
+  padding-bottom: 10px;
+}
+
+#textBeginCointainer {
+  padding-bottom: 0;
+}
+
+#textEindCointainer {
+  padding-bottom: 0;
+}
+
+#filterKnopId {
+  padding-left: 0px;
+}
+
+#EindDateContainer {
+  padding-right: 0px;
+}
+
+.btn-primary {
+  margin: 0;
+  padding-bottom: 3px;
+  padding-top: 4px;
+  width: 60px;
+}

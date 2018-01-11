@@ -23,6 +23,9 @@ import { SportshallTimeItemComponent } from './sportshalls/sportshall-time-item/
 import { BookingItemSmallComponent } from './bookings/booking-item-small/booking-item-small.component';
 import { BookingDetailComponent } from './bookings/booking-detail/booking-detail.component';
 import {ProprietorService} from './shared/services/proprietor.service';
+import { MaintenanceComponent } from './maintenance/maintenance.component';
+import { MaintenanceListComponent } from './maintenance/maintenance-list/maintenance-list.component';
+import { MaintenanceItemComponent } from './maintenance/maintenance-list/maintenance-item/maintenance-item.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import {ProprietorService} from './shared/services/proprietor.service';
     SportshallTimeItemComponent,
     BookingItemSmallComponent,
     BookingDetailComponent,
+    MaintenanceComponent,
+    MaintenanceListComponent,
+    MaintenanceItemComponent,
   ],
   imports: [
     BrowserModule,
