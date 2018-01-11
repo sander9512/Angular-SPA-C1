@@ -1,10 +1,11 @@
 <a class="list-group-item clearfix"
    style="cursor: pointer">
   <div class="pull-left">
+    <p class="list-group-item-text">Datum: ({{ booking.date }})</p>
     <p class="list-group-item-text">Starttijd: ({{ booking.startTime }}) - Eindtijd: ({{ booking.endTime}})</p>
-    <p class="list-group-item-text">Sporthal: {{ booking.sportsHallName }} - Zaal ({{ booking.room }})</p>
-    <p class="list-group-item-text">Activiteit: {{ booking.activity }}</p>
-    <p class="list-group-item-text">Gereserveerd door: {{ booking.customerName }}</p>
+    <p class="list-group-item-text">Sporthal: {{ booking.hall.name }} - Zaal ({{ booking.room.roomNumber }})</p>
+    <p class="list-group-item-text">Activiteit: {{ booking.activity.name }}</p>
+    <p class="list-group-item-text">Gereserveerd door: {{ 'Klant' }}</p>
   </div>
   <span class="pull-right">
      <button>
