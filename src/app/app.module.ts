@@ -21,6 +21,8 @@ import {UserService} from './shared/services/user.service';
 import { SportshallDetailComponent } from './sportshalls/sportshall-detail/sportshall-detail.component';
 import { SportshallTimeItemComponent } from './sportshalls/sportshall-time-item/sportshall-time-item.component';
 import { BookingItemSmallComponent } from './bookings/booking-item-small/booking-item-small.component';
+import { MaintenanceComponent } from './maintenance/maintenance.component';
+// import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { BookingItemSmallComponent } from './bookings/booking-item-small/booking
     SportshallDetailComponent,
     SportshallTimeItemComponent,
     BookingItemSmallComponent,
+    MaintenanceComponent,
+    // DataTablesModule
   ],
   imports: [
     BrowserModule,
