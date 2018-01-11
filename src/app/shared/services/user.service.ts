@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 export class UserService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.serverUrl;
-  private token = '';
+  private token;
   private user: User;
   private proprietor: {id: number, name: string};
   constructor(private http: Http, private router: Router) { }
