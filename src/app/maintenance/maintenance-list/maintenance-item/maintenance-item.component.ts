@@ -12,6 +12,7 @@ export class MaintenanceItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.maintenance = new Maintenance({'_startTime': new Date(), '_endTime': new Date()});
   }
 
 
