@@ -15,6 +15,7 @@ export class MaintenanceListComponent implements OnInit {
   startDate: Date;
   endDate: Date;
   id: number;
+  warning = '';
   constructor(private maintenanceService: MaintenanceService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -44,6 +45,7 @@ export class MaintenanceListComponent implements OnInit {
 
   onFilter() {
     if (this.startDate != null && this.endDate != null && this.endDate > this.startDate) {
+      this.warning = '';
       const dates = [
         this.startDate, this.endDate
         ];
@@ -52,6 +54,8 @@ export class MaintenanceListComponent implements OnInit {
           this.maintenances = maintenances;
       })
         .catch(error => console.log(error));
+    } else {
+     this.warning = 'Controleer of de begin en einddatum correct zijn';
     }
   }
 }
