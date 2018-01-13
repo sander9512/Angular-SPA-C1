@@ -18,9 +18,8 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/sportshalls', pathMatch: 'full' },
   { path: 'halls/:id', component: SportshallDetailComponent},
   { path: 'halls/:id/maintenance', component: MaintenanceComponent},
-  { path: 'halls/:id/new-maintenance', component: MaintenanceNewComponent},
+  { path: 'halls/:id/maintenance/new', component: MaintenanceNewComponent},
   { path: 'halls/:id/edit-times', component: EditTimesComponent },
-  { path: 'maintenance', component: MaintenanceComponent},
   { path: 'halls/:id/new-closingtime', component: ClosingTimeComponent},
   { path: 'sportshalls', component: SportshallsComponent, children: []},
   { path: 'bookings', component: BookingsComponent, children: [

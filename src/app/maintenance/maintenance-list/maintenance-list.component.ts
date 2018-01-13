@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Maintenance} from '../../shared/models/maintenance.model';
 import {MaintenanceService} from '../../shared/services/maintenance.service';
 import {Subscription} from 'rxjs/Subscription';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-maintenance-list',
@@ -11,9 +12,17 @@ import {Subscription} from 'rxjs/Subscription';
 export class MaintenanceListComponent implements OnInit {
   maintenances: Maintenance[];
   subscription: Subscription;
-  constructor(private maintenanceService: MaintenanceService) { }
+  startDate: Date;
+  endDate: Date;
+  id: number;
+  constructor(private maintenanceService: MaintenanceService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.route.params
+      .subscribe(params => {
+        console.log('params: ', params);
+        console.log('params[\'id\']: ' + params['id']);
+        this.id = params['id'];
     this.subscription = this.maintenanceService.maintenanceChanged
       .subscribe(
         (maintenances: Maintenance[]) => {
@@ -21,11 +30,28 @@ export class MaintenanceListComponent implements OnInit {
           console.log('onderhoud', this.maintenances);
         }
       );
-    this.maintenanceService.getMaintenances()
+    this.maintenanceService.getMaintenancesWithId(this.id)
       .then(maintenances => {
         this.maintenances = maintenances;
       })
       .catch(error => console.log(error));
+    });
   }
 
+  onNewMaintenance() {
+      this.router.navigate(['new'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
+  }
+
+  onFilter() {
+    if (this.startDate != null && this.endDate != null && this.endDate > this.startDate) {
+      const dates = [
+        this.startDate, this.endDate
+        ];
+      this.maintenanceService.filterMaintenances(this.id, dates)
+        .then(maintenances => {
+          this.maintenances = maintenances;
+      })
+        .catch(error => console.log(error));
+    }
+  }
 }

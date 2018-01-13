@@ -28,6 +28,32 @@ export class MaintenanceService {
         return Promise.reject(error.message || error);
       });
   }
+  getMaintenancesWithId(id): Promise<Maintenance[]> {
+    return this.http.get(this.serverUrl + '/' + id, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.dir(response.json());
+        this.maintenances = response.json() as Maintenance[];
+        return this.maintenances;
+      })
+      .catch(error => {
+        console.log('handleError');
+        return Promise.reject(error.message || error);
+      });
+  }
+  filterMaintenances(id, dates): Promise<Maintenance[]> {
+    return this.http.post(this.serverUrl + '/filter/' + id, dates, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.dir(response.json());
+        this.maintenances = response.json() as Maintenance[];
+        return this.maintenances;
+      })
+      .catch(error => {
+        console.log('handleError');
+        return Promise.reject(error.message || error);
+      });
+  }
 
   addMaintenance(maintenance: Maintenance): Promise<any> {
     console.log('Onderhoud toevoegen');

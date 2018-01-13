@@ -14,7 +14,8 @@ export class SportshallDetailComponent implements OnInit {
   hall: SportsHall = new SportsHall();
   bookings: Booking[];
   id = 0;
-  constructor(private hallService: SportsHallsService, private bookingService: BookingsService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private hallService: SportsHallsService, private bookingService: BookingsService,
+              private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -39,6 +40,6 @@ export class SportshallDetailComponent implements OnInit {
   }
 
   onMaintenance() {
-    this.router.navigate(['new-maintenance'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
+    this.router.navigate(['maintenance'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
 }
