@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h2>Openingstijden aanpassen</h2>
+      <form [formGroup]="timesForm">
+
+        <div class="form-group">
+          <div class="row col-xs-12">
+            <label for="monday">Maandag</label>
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="startTimeMonday"
+                   formControlName="startTimeMonday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="closingTimeMonday"
+                   formControlName="closingTimeMonday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <button class="btn btn-primary" (click)="onMonday()">Submit</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row col-xs-12">
+            <label for="tuesday">Dinsdag</label>
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="startTimeTuesday"
+                   formControlName="startTimeTuesday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="closingTimeTuesday"
+                   formControlName="closingTimeTuesday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <button class="btn btn-primary" (click)="onTuesday()">Submit</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row col-xs-12">
+            <label for="wednesday">Woensdag</label>
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="startTimeWednesday"
+                   formControlName="startTimeWednesday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="closingTimeWednesday"
+                   formControlName="closingTimeWednesday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <button class="btn btn-primary" (click)="onWednesday()">Submit</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row col-xs-12">
+            <label for="thursday">Donderdag</label>
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="startTimeThursday"
+                   formControlName="startTimeThursday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="closingTimeThursday"
+                   formControlName="closingTimeThursday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <button class="btn btn-primary" (click)="onThursday()">Submit</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row col-xs-12">
+            <label for="friday">Vrijdag</label>
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="startTimeFriday"
+                   formControlName="startTimeFriday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="closingTimeFriday"
+                   formControlName="closingTimeFriday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <button class="btn btn-primary" (click)="onFriday()">Submit</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+</div>
