@@ -11,12 +11,14 @@ import {BookingListComponent} from './bookings/booking-list/booking-list.compone
 import {BookingDetailComponent} from './bookings/booking-detail/booking-detail.component';
 import {MaintenanceComponent} from './maintenance/maintenance.component';
 import {MaintenanceNewComponent} from './maintenance/maintenance-new/maintenance-new.component';
+import {ClosingTimeComponent} from './closing-time/closing-time.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/sportshalls', pathMatch: 'full' },
   { path: 'halls/:id', component: SportshallDetailComponent},
   { path: 'halls/:id/new-maintenance', component: MaintenanceNewComponent},
   { path: 'maintenance', component: MaintenanceComponent},
+  { path: 'halls/:id/new-closingtime', component: ClosingTimeComponent},
   { path: 'sportshalls', component: SportshallsComponent, children: []},
   { path: 'bookings', component: BookingsComponent, children: [
     { path: '', component: BookingListComponent },
