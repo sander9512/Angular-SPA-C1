@@ -11,11 +11,8 @@ import {BookingListComponent} from './bookings/booking-list/booking-list.compone
 import {BookingDetailComponent} from './bookings/booking-detail/booking-detail.component';
 import {MaintenanceComponent} from './maintenance/maintenance.component';
 import {MaintenanceNewComponent} from './maintenance/maintenance-new/maintenance-new.component';
-<<<<<<< HEAD
 import {ClosingTimeComponent} from './closing-time/closing-time.component';
-=======
 import {EditTimesComponent} from './edit-times/edit-times.component';
->>>>>>> origin/dev
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/sportshalls', pathMatch: 'full' },
