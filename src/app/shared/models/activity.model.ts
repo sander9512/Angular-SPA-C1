@@ -1,6 +1,6 @@
-export class Activity {
-  private _id: number;
-  private _name: string;
+export class Activity implements MaintenanceObject {
+  _id: number;
+  _name: string;
 
   get id(): number {
     return this._id;

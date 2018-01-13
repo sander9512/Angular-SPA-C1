@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Maintenance} from '../../../shared/models/maintenance.model';
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-maintenance-item',
   templateUrl: './maintenance-item.component.html',
@@ -12,7 +12,6 @@ export class MaintenanceItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.maintenance = new Maintenance({'_startTime': new Date(), '_endTime': new Date()});
   }
 
 

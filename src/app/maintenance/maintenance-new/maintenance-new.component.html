@@ -30,18 +30,28 @@
           </div>
           <div class="form-group">
             <label for="type">Onderhoud type</label>
-            <select class="form-control" id="type" [formControlName]="type">
-              <option>Zaalobject</option>
-              <option>Faciliteit</option>
-              <option>Zaal</option>
+            <select class="form-control" id="type"
+                    [ngModel]="selectedType"
+                    (ngModelChange)="onChangeType($event)"
+                    [ngModelOptions]="{standalone: true}">
+              <option [ngValue]="i" *ngFor="let i of types">{{i}}</option>
             </select>
           </div>
           <div class="form-group">
             <label for="object">Onderhoud op</label>
-            <select class="form-control" id="object" [formControlName]="object">
-              <!--<option *ngFor="let object of objects"> {{object.name}}</option>-->
-              <option>Basketbal</option>
-              <option>Zaalhockey</option>
+            <select class="form-control" id="object"
+                    [ngModel]="selectedObject"
+                    (ngModelChange)="onChangeObject($event)"
+                    [ngModelOptions]="{standalone: true}">
+              <ng-container *ngIf="selectedType === 'Zaalobject'">
+                <option [ngValue]="i" *ngFor="let i of activities">{{i.activity.name}}</option>
+              </ng-container>
+              <ng-container *ngIf="selectedType === 'Faciliteit'">
+                <option [ngValue]="i" *ngFor="let i of facilities">{{i.facility.name}}</option>
+              </ng-container>
+              <ng-container *ngIf="selectedType === 'Zaal'">
+                <option [ngValue]="i" *ngFor="let i of rooms">{{i.roomNumber}}</option>
+              </ng-container>
             </select>
           </div>
           <div class="form-group">

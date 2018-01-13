@@ -17,6 +17,7 @@ import {EditTimesComponent} from './edit-times/edit-times.component';
 const appRoutes: Routes = [
   { path: '', redirectTo: '/sportshalls', pathMatch: 'full' },
   { path: 'halls/:id', component: SportshallDetailComponent},
+  { path: 'halls/:id/maintenance', component: MaintenanceComponent},
   { path: 'halls/:id/new-maintenance', component: MaintenanceNewComponent},
   { path: 'halls/:id/edit-times', component: EditTimesComponent },
   { path: 'maintenance', component: MaintenanceComponent},

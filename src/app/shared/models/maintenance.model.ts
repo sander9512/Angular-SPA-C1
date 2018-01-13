@@ -1,10 +1,22 @@
+import {Time} from '@angular/common';
+
 export class Maintenance {
   private _sportsHallId: number;
   private _maintenanceType: string;
   private _maintenanceObject: string;
-  private _startTime: Date;
-  private _endTime: Date;
+  private _date: Date;
+  private _startTime: Time;
+  private _endTime: Time;
   private _description: string;
+
+
+  get date(): Date {
+    return this._date;
+  }
+
+  set date(value: Date) {
+    this._date = value;
+  }
 
   get sportsHallId(): number {
     return this._sportsHallId;
@@ -29,20 +41,19 @@ export class Maintenance {
   set maintenanceObject(value: string) {
     this._maintenanceObject = value;
   }
-
-  get startTime(): Date {
+  get startTime(): Time {
     return this._startTime;
   }
 
-  set startTime(value: Date) {
+  set startTime(value: Time) {
     this._startTime = value;
   }
 
-  get endTime(): Date {
+  get endTime(): Time {
     return this._endTime;
   }
 
-  set endTime(value: Date) {
+  set endTime(value: Time) {
     this._endTime = value;
   }
 

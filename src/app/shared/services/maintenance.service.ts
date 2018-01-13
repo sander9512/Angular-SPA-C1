@@ -29,14 +29,14 @@ export class MaintenanceService {
       });
   }
 
-  addMaintenance(maintenance: Maintenance): Promise<Maintenance> {
+  addMaintenance(maintenance: Maintenance): Promise<any> {
     console.log('Onderhoud toevoegen');
 
     return this.http.post(this.serverUrl, maintenance, { headers: this.headers })
       .toPromise()
       .then(response => {
     console.dir(response.json());
-    return response.json() as Maintenance;
+    return response.json() as any;
     })
     .catch(error => {
       console.log('handleError');

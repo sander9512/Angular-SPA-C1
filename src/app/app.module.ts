@@ -29,11 +29,8 @@ import { MaintenanceItemComponent } from './maintenance/maintenance-list/mainten
 import {MaintenanceService} from './shared/services/maintenance.service';
 import {ClosingDayService} from './shared/services/closingday.service';
 import { MaintenanceNewComponent } from './maintenance/maintenance-new/maintenance-new.component';
-<<<<<<< HEAD
 import { EditTimesComponent } from './edit-times/edit-times.component';
-=======
 import { ClosingTimeComponent } from './closing-time/closing-time.component';
->>>>>>> ad2e8719d109552b80112cc4e6ab851bc78ba7d7
 
 @NgModule({
   declarations: [
@@ -57,11 +54,8 @@ import { ClosingTimeComponent } from './closing-time/closing-time.component';
     MaintenanceListComponent,
     MaintenanceItemComponent,
     MaintenanceNewComponent,
-<<<<<<< HEAD
     EditTimesComponent,
-=======
     ClosingTimeComponent,
->>>>>>> ad2e8719d109552b80112cc4e6ab851bc78ba7d7
   ],
   imports: [
     BrowserModule,

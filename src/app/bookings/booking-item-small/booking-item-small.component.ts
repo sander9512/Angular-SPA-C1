@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Booking} from '../../shared/models/booking.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-booking-item-small',

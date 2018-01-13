@@ -1,6 +1,6 @@
-export class Facility {
-  private _id: number;
-  private _name: string;
+export class Facility implements MaintenanceObject {
+  _id: number;
+  _name: string;
 
 
   get id(): number {

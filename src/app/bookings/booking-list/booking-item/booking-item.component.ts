@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Booking} from '../../../shared/models/booking.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {BookingsService} from '../../../shared/services/booking.service';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class BookingItemComponent implements OnInit {
               private bookingsService: BookingsService) { }
 
   ngOnInit() {
+    console.log(this.booking);
   }
 
   onDetail() {
