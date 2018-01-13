@@ -29,6 +29,7 @@ import { MaintenanceItemComponent } from './maintenance/maintenance-list/mainten
 import {MaintenanceService} from './shared/services/maintenance.service';
 import {ClosingDayService} from './shared/services/closingday.service';
 import { MaintenanceNewComponent } from './maintenance/maintenance-new/maintenance-new.component';
+import { EditTimesComponent } from './edit-times/edit-times.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { MaintenanceNewComponent } from './maintenance/maintenance-new/maintenan
     MaintenanceListComponent,
     MaintenanceItemComponent,
     MaintenanceNewComponent,
+    EditTimesComponent,
   ],
   imports: [
     BrowserModule,

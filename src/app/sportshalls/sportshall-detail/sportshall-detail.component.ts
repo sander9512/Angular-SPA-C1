@@ -35,9 +35,10 @@ export class SportshallDetailComponent implements OnInit {
   }
 
   editTimes() {
+    this.router.navigate(['edit-times'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
 
   onMaintenance() {
-  this.router.navigate(['new-maintenance'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
+    this.router.navigate(['new-maintenance'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
 }
