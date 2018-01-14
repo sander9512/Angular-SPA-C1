@@ -57,31 +57,8 @@ export class BookingsService {
         return Promise.reject(error.message || error);
       });
   }
-
-  getFormattedBookingsWithHall(id: number) {
-    return this.http.get(this.serverUrl + '/hall/' + id, {headers: this.headers})
-      .toPromise()
-      .then(response => {
-        console.dir(response.json());
-        const res = JSON.parse(response.text());
-        for (let i of res.length) {
-          const booking = new Booking(i);
-          booking.startTime = new Date(res['startTime']);
-          console.log('start', booking.startTime);
-          booking.endTime = new Date(res['endTime']);
-          console.log('end', booking.endTime);
-          this.bookings.push(i);
-        }
-        // this.bookings = response.json() as Booking[];
-        return this.bookings;
-      })
-      .catch(error => {
-        console.log('handleError');
-        return Promise.reject(error.message || error);
-      });
-  }
-
   createScheduleData(bookings: Booking[]): ScheduleItem[] {
+    this.items.length = 0;
     for (let i of bookings) {
       const start = i.startTime.toString();
       const startDate = new Date(start);
