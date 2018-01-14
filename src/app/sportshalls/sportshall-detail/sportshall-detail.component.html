@@ -14,6 +14,9 @@
 </div>
 <div class="row">
   <h2>Opkomende boekingen</h2>
+  <button type="button" class="btn btn-primary btn-sm" (click)="onSchedule()" [disabled]="bookings?.length === 0">Totaal overzicht boekingen</button>
+  <br>
+  <br>
   <div class="col-xs-8">
   <app-booking-item *ngFor="let booking of bookings" [booking]="booking"></app-booking-item>
   </div>

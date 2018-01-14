@@ -24,6 +24,9 @@
     "angular-moment-picker": "^0.10.1",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "devextreme": "^17.2.4",
+    "devextreme-angular": "^17.2.4",
+    "jqwidgets-framework": "^5.5.0",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },

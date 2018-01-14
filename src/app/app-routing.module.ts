@@ -13,10 +13,12 @@ import {MaintenanceComponent} from './maintenance/maintenance.component';
 import {MaintenanceNewComponent} from './maintenance/maintenance-new/maintenance-new.component';
 import {ClosingTimeComponent} from './closing-time/closing-time.component';
 import {EditTimesComponent} from './edit-times/edit-times.component';
+import {SportshallScheduleComponent} from './sportshalls/sportshall-schedule/sportshall-schedule.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/sportshalls', pathMatch: 'full' },
   { path: 'halls/:id', component: SportshallDetailComponent},
+  { path: 'halls/:id/schedule', component: SportshallScheduleComponent},
   { path: 'halls/:id/maintenance', component: MaintenanceComponent},
   { path: 'halls/:id/maintenance/new', component: MaintenanceNewComponent},
   { path: 'halls/:id/edit-times', component: EditTimesComponent },

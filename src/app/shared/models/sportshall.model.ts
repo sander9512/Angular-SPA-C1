@@ -22,7 +22,7 @@ export class SportsHall {
 
 
   // constructor(name: string, city: string, street: string, houseNumber: string, phone: string) {
-  //   this._name = name;
+  //   this._roomNumber = name;
   //   this._city = city;
   //   this._street = street;
   //   this._houseNumber = houseNumber;

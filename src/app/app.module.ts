@@ -31,6 +31,8 @@ import {ClosingDayService} from './shared/services/closingday.service';
 import { MaintenanceNewComponent } from './maintenance/maintenance-new/maintenance-new.component';
 import { EditTimesComponent } from './edit-times/edit-times.component';
 import { ClosingTimeComponent } from './closing-time/closing-time.component';
+import { SportshallScheduleComponent } from './sportshalls/sportshall-schedule/sportshall-schedule.component';
+import {DxSchedulerModule} from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -56,13 +58,15 @@ import { ClosingTimeComponent } from './closing-time/closing-time.component';
     MaintenanceNewComponent,
     EditTimesComponent,
     ClosingTimeComponent,
+    SportshallScheduleComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DxSchedulerModule
   ],
   providers: [SportsHallsService, BookingsService, UserService, ProprietorService,
     MaintenanceService, ClosingDayService],

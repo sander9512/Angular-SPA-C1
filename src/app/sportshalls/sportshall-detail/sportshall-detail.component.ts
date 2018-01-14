@@ -42,4 +42,8 @@ export class SportshallDetailComponent implements OnInit {
   onMaintenance() {
     this.router.navigate(['maintenance'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
+
+  onSchedule() {
+    this.router.navigate(['schedule'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
+  }
 }
