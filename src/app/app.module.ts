@@ -33,6 +33,7 @@ import { EditTimesComponent } from './edit-times/edit-times.component';
 import { ClosingTimeComponent } from './closing-time/closing-time.component';
 import { SportshallScheduleComponent } from './sportshalls/sportshall-schedule/sportshall-schedule.component';
 import {DxSchedulerModule} from 'devextreme-angular';
+import {TimesService} from './shared/services/times.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,7 @@ import {DxSchedulerModule} from 'devextreme-angular';
     DxSchedulerModule
   ],
   providers: [SportsHallsService, BookingsService, UserService, ProprietorService,
-    MaintenanceService, ClosingDayService],
+    MaintenanceService, ClosingDayService, TimesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
