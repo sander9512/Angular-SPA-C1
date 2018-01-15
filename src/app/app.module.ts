@@ -37,6 +37,7 @@ import {TimesService} from './shared/services/times.service';
 import { ClosingTimeItemComponent } from './closing-time/closing-time-item/closing-time-item.component';
 import { ScheduleComponent } from './staff-schedule/schedule.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +65,7 @@ import { ScheduleComponent } from './staff-schedule/schedule.component';
     SportshallScheduleComponent,
     ClosingTimeItemComponent,
     ScheduleComponent,
+
   ],
   imports: [
     BrowserModule,
