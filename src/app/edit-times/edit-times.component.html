@@ -1,0 +1,121 @@
+<div class="container">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h2>Openingstijden aanpassen</h2>
+      <form [formGroup]="timesFormMonday">
+
+        <div class="form-group">
+          <div class="row col-xs-12">
+            <label for="monday">Maandag</label>
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="startTimeMonday"
+                   formControlName="startTimeMonday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="closingTimeMonday"
+                   formControlName="closingTimeMonday"
+                   class="form-control">
+            <input type="hidden" formControlName="mondayId">
+          </div>
+          <div class="row col-md-4">
+            <button class="btn btn-primary" (click)="onSaveMonday()">Save</button>
+          </div>
+        </div>
+      </form>
+      <form [formGroup]="timesFormTuesday">
+        <div class="form-group">
+          <div class="row col-xs-12">
+            <label for="tuesday">Dinsdag</label>
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="startTimeTuesday"
+                   formControlName="startTimeTuesday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="closingTimeTuesday"
+                   formControlName="closingTimeTuesday"
+                   class="form-control">
+            <input type="hidden" formControlName="tuesdayId">
+          </div>
+          <div class="row col-md-4">
+            <button class="btn btn-primary" (click)="onSaveTuesday()">Save</button>
+          </div>
+        </div>
+      </form>
+      <form [formGroup]="timesFormWednesday">
+        <div class="form-group">
+          <div class="row col-xs-12">
+            <label for="wednesday">Woensdag</label>
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="startTimeWednesday"
+                   formControlName="startTimeWednesday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="closingTimeWednesday"
+                   formControlName="closingTimeWednesday"
+                   class="form-control">
+            <input type="hidden" formControlName="wednesdayId">
+          </div>
+          <div class="row col-md-4">
+            <button class="btn btn-primary" (click)="onSaveWednesday()">Save</button>
+          </div>
+        </div>
+      </form>
+      <form [formGroup]="timesFormThursday">
+        <div class="form-group">
+          <div class="row col-xs-12">
+            <label for="thursday">Donderdag</label>
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="startTimeThursday"
+                   formControlName="startTimeThursday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="closingTimeThursday"
+                   formControlName="closingTimeThursday"
+                   class="form-control">
+            <input type="hidden" formControlName="thursdayId">
+          </div>
+          <div class="row col-md-4">
+            <button class="btn btn-primary" (click)="onSaveThursday()">Save</button>
+          </div>
+        </div>
+      </form>
+      <form [formGroup]="timesFormFriday">
+        <div class="form-group">
+          <div class="row col-xs-12">
+            <label for="friday">Vrijdag</label>
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="startTimeFriday"
+                   formControlName="startTimeFriday"
+                   class="form-control">
+          </div>
+          <div class="row col-md-4">
+            <input type="text"
+                   id="closingTimeFriday"
+                   formControlName="closingTimeFriday"
+                   class="form-control">
+            <input type="hidden" formControlName="fridayId">
+          </div>
+          <div class="row col-md-4">
+            <button class="btn btn-primary" (click)="onSaveFriday()">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+</div>

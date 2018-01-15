@@ -1,7 +1,8 @@
-export class Room {
-  private _id: number;
+export class Room implements MaintenanceObject {
+  _id: number;
   private _roomNumber: string;
-  private _capacity: number;
+  _capacity: number;
+  _name: string;
 
   get id(): number {
     return this._id;
@@ -11,11 +12,20 @@ export class Room {
     this._id = value;
   }
 
+  get name(): string {
+    return this._roomNumber;
+  }
+
+
   get roomNumber(): string {
     return this._roomNumber;
   }
 
   set roomNumber(value: string) {
+    this._roomNumber = value;
+  }
+
+  set name(value: string) {
     this._roomNumber = value;
   }
 

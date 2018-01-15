@@ -1,10 +1,16 @@
 <div class="row">
   <div class="col-xs-12">
     <p>
-      booking-detail works!
+      Datum: {{ booking.date }}
     </p>
     <p>
-      Naam klant: {{ booking.customerName}}
+      Tijd: {{ booking.startTime }} - {{ booking.endTime }}
+    </p>
+    <p>
+      Activiteit: {{ booking.activity.name }}
+    </p>
+    <p>
+      Zaal: {{ booking.room.name }}
     </p>
   </div>
 </div>

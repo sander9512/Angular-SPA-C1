@@ -1,0 +1,13 @@
+<dx-scheduler
+  [dataSource]="scheduleData"
+  appointmentTemplate="scheduleTemplate"
+  [currentDate]="currentDate">
+  <dxo-editing
+    [allowAdding]="false"
+    [allowUpdating]="false"
+    [allowDeleting]="false">
+  </dxo-editing>
+  <div *dxTemplate="let schedule of 'scheduleTemplate'">
+    <i>{{schedule.text}}</i>
+  </div>
+</dx-scheduler>

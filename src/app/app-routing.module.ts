@@ -7,14 +7,29 @@ import {BookingsComponent} from './bookings/bookings.component';
 import {SportshallDetailComponent} from './sportshalls/sportshall-detail/sportshall-detail.component';
 import {SigninComponent} from './auth/signin/signin.component';
 import {SignupComponent} from './auth/signup/signup.component';
+import {BookingListComponent} from './bookings/booking-list/booking-list.component';
+import {BookingDetailComponent} from './bookings/booking-detail/booking-detail.component';
 import {MaintenanceComponent} from './maintenance/maintenance.component';
+import {MaintenanceNewComponent} from './maintenance/maintenance-new/maintenance-new.component';
+import {ClosingTimeComponent} from './closing-time/closing-time.component';
+import {EditTimesComponent} from './edit-times/edit-times.component';
+import {SportshallScheduleComponent} from './sportshalls/sportshall-schedule/sportshall-schedule.component';
+import {ScheduleComponent} from './staff-schedule/schedule.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/sportshalls', pathMatch: 'full' },
   { path: 'halls/:id', component: SportshallDetailComponent},
-  { path: 'maintenance', component: MaintenanceComponent},
+  { path: 'halls/:id/schedule', component: SportshallScheduleComponent},
+  { path: 'halls/:id/maintenance', component: MaintenanceComponent},
+  { path: 'halls/:id/maintenance/new', component: MaintenanceNewComponent},
+  { path: 'halls/:id/edit-times', component: EditTimesComponent },
+  { path: 'halls/:id/new-closingtime', component: ClosingTimeComponent},
   { path: 'sportshalls', component: SportshallsComponent, children: []},
-  { path: 'bookings', component: BookingsComponent, children: []},
+  { path: 'bookings', component: BookingsComponent, children: [
+    { path: '', component: BookingListComponent },
+    { path: ':id', component: BookingDetailComponent }
+  ]},
+  { path: 'staff/schedule', component: ScheduleComponent },
   { path: 'login', component: SigninComponent},
   { path: 'signup', component: SignupComponent}
 ];

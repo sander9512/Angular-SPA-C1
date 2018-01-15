@@ -3,6 +3,7 @@ export class OpeningsTime {
   private _day: string;
   private _timeOpen: string;
   private _timeClose: string;
+  private _description: string;
 
 
   get id(): number {
@@ -35,6 +36,14 @@ export class OpeningsTime {
 
   set timeClose(value: string) {
     this._timeClose = value;
+  }
+
+  get description(): string {
+    return this._description;
+  }
+
+  set description(value: string) {
+    this._description = value;
   }
   constructor(values: Object = {}) {
     Object.assign(this, values);

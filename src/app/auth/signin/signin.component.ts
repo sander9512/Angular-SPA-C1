@@ -26,7 +26,6 @@ export class SigninComponent implements OnInit {
     console.log(user);
     this.userService.login(user);
     this.signInForm.reset();
-
   }
 
   private initForm() {

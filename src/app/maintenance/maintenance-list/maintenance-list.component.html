@@ -1,0 +1,49 @@
+<h4>Filter een datum</h4>
+<div class="container">
+  <div class="col-xs-2">
+    <div class="container" id="textBeginCointainer">
+      <b>Begin datum:</b>
+    </div>
+  </div>
+  <div class="col-xs-2">
+    <div class="container" id="textEindCointainer">
+      <b>Eind datum:</b>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="col-xs-2">
+    <div class="container">
+      <input type="date" [(ngModel)]="startDate">
+    </div>
+  </div>
+  <div class="col-xs-2">
+    <div class="container" id="EindDateContainer">
+      <input type="date" [(ngModel)]="endDate">
+    </div>
+  </div>
+  <div class="col-xs-1">
+    <div class="container" id="filterKnopId">
+      <button class="btn btn-primary btn-xs" (click)="onFilter()"><b>Filter</b></button>
+    </div>
+  </div>
+  <div class="col-xs-1">
+    <div class="container">
+      <button class="btn btn-primary btn-xs" (click)="onNewMaintenance()"><b>Nieuw onderhoud</b></button>
+    </div>
+  </div>
+</div>
+<span *ngIf="warning != ''">{{warning}}</span>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <ng-container *ngIf="maintenances?.length > 0">
+      <app-maintenance-item
+        *ngFor="let maintenanceEl of maintenances; let i of index"
+        [maintenance]="maintenanceEl"
+        [index]="i">
+      </app-maintenance-item>
+    </ng-container>
+    <h4 *ngIf="maintenances?.length === 0">Geen onderhoud gevonden!</h4>
+  </div>
+</div>

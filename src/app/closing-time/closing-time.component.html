@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h2>Sluitingsdag toevoegen</h2>
+      <form [formGroup]="form" (ngSubmit)="onClosingTimeSubmit()">
+        <div id="closingTime-data">
+          <div class="form-group">
+            <label for="date">Datum</label>
+            <input type="date"
+                   id="date"
+                   formControlName="date"
+                   class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="startTime">Openingstijd</label>
+            <input type="time"
+                   id="startTime"
+                   formControlName="startTime"
+                   class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="closingTime">Sluitingstijd</label>
+            <input type="time"
+                   id="closingTime"
+                   formControlName="closingTime"
+                   class="form-control">
+          </div>
+          <div class="form-group">
+            <div class="form-control">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="allDay" formControlName="allDay"> Hele dag sluiten
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Beschrijving</label>
+            <input type="text"
+                   id="description"
+                   formControlName="description"
+                   class="form-control">
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

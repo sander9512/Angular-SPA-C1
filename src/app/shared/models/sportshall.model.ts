@@ -17,16 +17,34 @@ export class SportsHall {
   private _rooms: Room[];
   private _facilities: Facility[];
   private _activities: Activity[];
+  private _sportsHallActivities: any[];
+  private _sportsHallFacilities: any[];
 
 
   // constructor(name: string, city: string, street: string, houseNumber: string, phone: string) {
-  //   this._name = name;
+  //   this._roomNumber = name;
   //   this._city = city;
   //   this._street = street;
   //   this._houseNumber = houseNumber;
   //   this._phone = phone;
   // }
 
+
+  get sportsHallActivities(): any[] {
+    return this._sportsHallActivities;
+  }
+
+  set sportsHallActivities(value: any[]) {
+    this._sportsHallActivities = value;
+  }
+
+  get sportsHallFacilities(): any[] {
+    return this._sportsHallFacilities;
+  }
+
+  set sportsHallFacilities(value: any[]) {
+    this._sportsHallFacilities = value;
+  }
 
   get id(): number {
     return this._id;

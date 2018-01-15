@@ -3,13 +3,19 @@ import {Http, Headers} from '@angular/http';
 import {environment} from '../../../environments/environment';
 import {User} from '../models/user.model';
 import {Router} from '@angular/router';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class UserService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.serverUrl;
-  private token = '';
-  private user: User;
+  private token;
+  user: User;
+  private proprietor: {id: number, name: string};
+  User: any;
+  userChange: Subject<User> = new Subject<User>();
+
+
   constructor(private http: Http, private router: Router) { }
 
 
@@ -37,6 +43,8 @@ export class UserService {
         console.log(authUser);
         this.user = authUser;
         this.router.navigate(['/']);
+        this.user = this.user;
+        this.userChange.next(this.user);
         return authUser as User;
       })
       .catch(error => {
@@ -46,6 +54,7 @@ export class UserService {
   }
   public logout() {
     this.token = null;
+    this.user = null;
   }
   public getToken() {
       return this.token;
