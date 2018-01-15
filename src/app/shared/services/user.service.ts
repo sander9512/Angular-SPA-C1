@@ -3,6 +3,7 @@ import {Http, Headers} from '@angular/http';
 import {environment} from '../../../environments/environment';
 import {User} from '../models/user.model';
 import {Router} from '@angular/router';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class UserService {
@@ -11,6 +12,10 @@ export class UserService {
   private token;
   private user: User;
   private proprietor: {id: number, name: string};
+  email: any;
+  emailChange: Subject<string> = new Subject<string>();
+
+
   constructor(private http: Http, private router: Router) { }
 
 
@@ -38,6 +43,8 @@ export class UserService {
         console.log(authUser);
         this.user = authUser;
         this.router.navigate(['/']);
+        this.email = this.user.email;
+        this.emailChange.next(this.email);
         return authUser as User;
       })
       .catch(error => {
@@ -47,6 +54,7 @@ export class UserService {
   }
   public logout() {
     this.token = null;
+    this.email = null;
   }
   public getToken() {
       return this.token;

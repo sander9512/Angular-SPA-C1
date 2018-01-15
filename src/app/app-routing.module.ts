@@ -14,6 +14,7 @@ import {MaintenanceNewComponent} from './maintenance/maintenance-new/maintenance
 import {ClosingTimeComponent} from './closing-time/closing-time.component';
 import {EditTimesComponent} from './edit-times/edit-times.component';
 import {SportshallScheduleComponent} from './sportshalls/sportshall-schedule/sportshall-schedule.component';
+import {ScheduleComponent} from './staff-schedule/schedule.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/sportshalls', pathMatch: 'full' },
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     { path: '', component: BookingListComponent },
     { path: ':id', component: BookingDetailComponent }
   ]},
+  { path: 'staff/schedule', component: ScheduleComponent },
   { path: 'login', component: SigninComponent},
   { path: 'signup', component: SignupComponent}
 ];
