@@ -34,6 +34,7 @@ import { ClosingTimeComponent } from './closing-time/closing-time.component';
 import { SportshallScheduleComponent } from './sportshalls/sportshall-schedule/sportshall-schedule.component';
 import {DxSchedulerModule} from 'devextreme-angular';
 import {TimesService} from './shared/services/times.service';
+import { ClosingTimeItemComponent } from './closing-time/closing-time-item/closing-time-item.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import {TimesService} from './shared/services/times.service';
     EditTimesComponent,
     ClosingTimeComponent,
     SportshallScheduleComponent,
+    ClosingTimeItemComponent,
   ],
   imports: [
     BrowserModule,

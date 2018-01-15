@@ -1,8 +1,11 @@
 export class ClosingDay {
+  private _id: string;
   private _sportsHallId: number;
+  private _date: Date;
   private _startTime: Date;
   private _endTime: Date;
   private _description: string;
+  private _allDay: boolean;
 
   get sportsHallId(): number {
     return this._sportsHallId;
@@ -10,6 +13,30 @@ export class ClosingDay {
 
   set sportsHallId(value: number) {
     this._sportsHallId = value;
+  }
+
+  get id(): string {
+    return this._id;
+  }
+
+  get date(): Date {
+    return this._date;
+  }
+
+  set date(value: Date) {
+    this._date = value;
+  }
+
+  set id(value: string) {
+    this._id = value;
+  }
+
+  get allDay(): boolean {
+    return this._allDay;
+  }
+
+  set allDay(value: boolean) {
+    this._allDay = value;
   }
 
   get startTime(): Date {

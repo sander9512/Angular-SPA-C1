@@ -22,6 +22,6 @@ export class BookingItemComponent implements OnInit {
   }
 
   onDetail() {
-    this.router.navigate([this.booking.id], { relativeTo: this.route} );
+    this.router.navigate(['/bookings/' + this.booking.id], { relativeTo: this.route} );
   }
 }

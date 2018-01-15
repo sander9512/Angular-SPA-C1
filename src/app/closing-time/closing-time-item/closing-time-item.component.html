@@ -1,0 +1,9 @@
+<a class="list-group-item clearfix"
+   style="cursor: pointer">
+  <div class="pull-left">
+    <p class="list-group-item-text"><b>Datum:</b> {{ closingDay.date | date: 'shortDate'}}</p>
+    <p class="list-group-item-text" *ngIf="!closingDay.allDay"><b>Starttijd:</b> {{closingDay.startTime}} - Eindtijd: {{closingDay.endTime}}</p>
+    <p class="list-group-item-text" *ngIf="closingDay.allDay"><b>Tijd: gehele dag</b></p>
+    <p class="list-group-item-text"><b>Beschrijving:</b> {{closingDay.description}}</p>
+  </div>
+</a>

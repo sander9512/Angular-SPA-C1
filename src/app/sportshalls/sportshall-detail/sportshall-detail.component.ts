@@ -4,6 +4,8 @@ import {SportsHallsService} from '../../shared/services/sportshall.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {BookingsService} from '../../shared/services/booking.service';
 import {Booking} from '../../shared/models/booking.model';
+import {ClosingDayService} from '../../shared/services/closingday.service';
+import {ClosingDay} from '../../shared/models/closingday.model';
 
 @Component({
   selector: 'app-sportshall-detail',
@@ -13,9 +15,10 @@ import {Booking} from '../../shared/models/booking.model';
 export class SportshallDetailComponent implements OnInit {
   hall: SportsHall = new SportsHall();
   bookings: Booking[];
+  closingDays: ClosingDay[];
   id = 0;
   constructor(private hallService: SportsHallsService, private bookingService: BookingsService,
-              private route: ActivatedRoute, private router: Router) { }
+              private route: ActivatedRoute, private router: Router, private closingService: ClosingDayService) { }
 
   ngOnInit() {
     this.route.params
@@ -32,6 +35,11 @@ export class SportshallDetailComponent implements OnInit {
             this.bookings = bookings;
           })
           .catch(error => console.log(error));
+        this.closingService.getClosingDays(this.id)
+          .then(closingDays => {
+            this.closingDays = closingDays;
+          })
+          .catch(error => console.log(error));
       });
   }
 
@@ -45,5 +53,9 @@ export class SportshallDetailComponent implements OnInit {
 
   onSchedule() {
     this.router.navigate(['schedule'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
+  }
+
+  onClosingDay() {
+    this.router.navigate(['new-closingtime'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
 }

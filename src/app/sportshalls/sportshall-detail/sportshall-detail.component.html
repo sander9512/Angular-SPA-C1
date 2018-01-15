@@ -13,14 +13,28 @@
   </div>
 </div>
 <div class="row">
-  <h2>Opkomende boekingen</h2>
-  <button type="button" class="btn btn-primary btn-sm" (click)="onSchedule()" [disabled]="bookings?.length === 0">Totaal overzicht boekingen</button>
-  <br>
-  <br>
-  <div class="col-xs-8">
-  <app-booking-item *ngFor="let booking of bookings" [booking]="booking"></app-booking-item>
+  <div class="col-xs-6">
+    <h2>Opkomende boekingen</h2>
+    <button type="button" class="btn btn-primary btn-sm" (click)="onSchedule()" [disabled]="bookings?.length === 0">Totaal overzicht boekingen</button>
+    <br>
+    <br>
+    <div class="col-xs-8">
+      <app-booking-item *ngFor="let booking of bookings" [booking]="booking"></app-booking-item>
+    </div>
+    <div class="col-xs-6" *ngIf="bookings?.length === 0">
+      <h4>Geen boekingen gevonden!</h4>
+    </div>
   </div>
-  <div class="col-xs-6" *ngIf="bookings?.length === 0">
-    <h4>Geen boekingen gevonden!</h4>
+  <div class="col-xs-6">
+    <h2>Opkomende sluitingsdagen</h2>
+    <button type="button" class="btn btn-primary btn-sm" (click)="onClosingDay()">Nieuwe sluitingsdag</button>
+    <br>
+    <br>
+    <div class="col-xs 6">
+      <app-closing-time-item *ngFor="let closingDay of closingDays" [closingDay]="closingDay"></app-closing-time-item>
+    </div>
+    <div class="col-xs-6" *ngIf="closingDays?.length === 0">
+      <h4>Geen sluitingsdagen gevonden!</h4>
+    </div>
   </div>
 </div>

@@ -15,8 +15,8 @@ export class ClosingDayService {
   constructor(private http: Http) {
   }
 
-  getClosingDays(): Promise<ClosingDay[]> {
-    return this.http.get(this.serverUrl, {headers: this.headers})
+  getClosingDays(id: number): Promise<ClosingDay[]> {
+    return this.http.get(this.serverUrl + '/' + id, {headers: this.headers})
       .toPromise()
       .then(response => {
         console.dir(response.json());
@@ -29,19 +29,17 @@ export class ClosingDayService {
       });
   }
 
-  addClosingDay(closingDay: ClosingDay): Promise<ClosingDay> {
+  addClosingDay(closingDay: ClosingDay): Promise<any> {
     console.log('Sluitingsdag toevoegen');
-
     return this.http.post(this.serverUrl, closingDay, { headers: this.headers })
       .toPromise()
       .then(response => {
     console.dir(response.json());
-    return response.json() as ClosingDay;
+    return response.json() as any;
     })
     .catch(error => {
       console.log('handleError');
       return Promise.reject(error.message || error);
     });
   }
-
 }
