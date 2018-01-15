@@ -49,9 +49,9 @@ export class SignupComponent implements OnInit {
   onSignUp() {
     const value = this.signUpForm.value;
     console.log('account', value.account);
-    const user = new User({'_email': value.email, '_password': value.password, '_role': this.selectedRole.name, '_propID': this.selectedAccount.id});
-    if (user.role === 'Personeel') {
-      user.propID = null;
+    const user = new User({'_email': value.email, '_password': value.password, '_role': this.selectedRole.name});
+    if (user.role === 'Verhuurder') {
+      user.propID = this.selectedAccount.id;
     }
     console.log(user);
     this.userService.register(user);

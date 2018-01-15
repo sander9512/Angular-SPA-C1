@@ -10,10 +10,10 @@ export class UserService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.serverUrl;
   private token;
-  private user: User;
+  user: User;
   private proprietor: {id: number, name: string};
-  email: any;
-  emailChange: Subject<string> = new Subject<string>();
+  User: any;
+  userChange: Subject<User> = new Subject<User>();
 
 
   constructor(private http: Http, private router: Router) { }
@@ -43,8 +43,8 @@ export class UserService {
         console.log(authUser);
         this.user = authUser;
         this.router.navigate(['/']);
-        this.email = this.user.email;
-        this.emailChange.next(this.email);
+        this.user = this.user;
+        this.userChange.next(this.user);
         return authUser as User;
       })
       .catch(error => {
@@ -54,7 +54,7 @@ export class UserService {
   }
   public logout() {
     this.token = null;
-    this.email = null;
+    this.user = null;
   }
   public getToken() {
       return this.token;

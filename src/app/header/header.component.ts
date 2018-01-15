@@ -11,19 +11,19 @@
 
 export class HeaderComponent {
 
-  userEmail: String;
+  user: any;
   subscription: Subscription;
 
   constructor(private userService: UserService){
-    this.userEmail = userService.email;
-    this.subscription = userService.emailChange.subscribe((value) => {
-      this.userEmail = value;
+    this.user = userService.user;
+    this.subscription = userService.userChange.subscribe((value) => {
+      this.user = value;
     });
   }
 
   logOut() {
     this.userService.logout();
-    this.userEmail = null;
+    this.user = null;
   }
 
 }
