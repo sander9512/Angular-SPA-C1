@@ -23,6 +23,7 @@ export class SportshallScheduleComponent implements OnInit {
   }];
   bookings: Booking[];
   scheduleData: ScheduleItem[];
+  startDayHour= 8;
   currentDate = new Date();
   id: number;
 

@@ -32,7 +32,7 @@ import { MaintenanceNewComponent } from './maintenance/maintenance-new/maintenan
 import { EditTimesComponent } from './edit-times/edit-times.component';
 import { ClosingTimeComponent } from './closing-time/closing-time.component';
 import { SportshallScheduleComponent } from './sportshalls/sportshall-schedule/sportshall-schedule.component';
-import {DxSchedulerModule} from 'devextreme-angular';
+import {DxButtonModule, DxSchedulerModule} from 'devextreme-angular';
 import {TimesService} from './shared/services/times.service';
 import { ClosingTimeItemComponent } from './closing-time/closing-time-item/closing-time-item.component';
 import { ScheduleComponent } from './staff-schedule/schedule.component';
@@ -79,7 +79,8 @@ import { OnlyProprietorsGuard } from './shared/guards/proprietor.guard';
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
-    DxSchedulerModule
+    DxSchedulerModule,
+    DxButtonModule
   ],
   providers: [SportsHallsService, BookingsService, UserService, ProprietorService,
     MaintenanceService, ClosingDayService, TimesService, OnlyLoggedInUsersGuard,

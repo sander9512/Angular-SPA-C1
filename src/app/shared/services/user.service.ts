@@ -43,7 +43,7 @@ export class UserService {
         console.log(authUser);
         this.user = authUser;
         this.router.navigate(['/']);
-        this.user = this.user;
+        // this.user = this.user;
         this.userChange.next(this.user);
         return authUser as User;
       })

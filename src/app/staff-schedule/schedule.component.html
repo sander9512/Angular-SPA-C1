@@ -1,13 +1,15 @@
 <dx-scheduler
-  [dataSource]="scheduleData"
+  [dataSource]="appointments"
   appointmentTemplate="scheduleTemplate"
-  [currentDate]="currentDate">
-  <dxo-editing
-    [allowAdding]="false"
-    [allowUpdating]="false"
-    [allowDeleting]="false">
+  [currentDate]="currentDate"
+  [startDayHour]="startDayHour"
+  (onAppointmentAdded)="onAppointmentAdded($event)"
+  (onAppointmentUpdated)="onAppointmentUpdated($event)"
+  (onAppointmentDeleted)="onAppointmentDeleted($event)">
+  <dxo-editing #editingOptions
+               [allowAdding]="true"
+               [allowUpdating]="true"
+               [allowDeleting]="true">
+
   </dxo-editing>
-  <div *dxTemplate="let schedule of 'scheduleTemplate'">
-    <i>{{schedule.text}}</i>
-  </div>
 </dx-scheduler>
