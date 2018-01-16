@@ -29,7 +29,7 @@
 
     <div class="navbar-default" *ngIf="user.role === 'Personeel'">
       <ul class="nav navbar-nav">
-        <li routerLinkActive="active"><a routerLink="/staff/schedule">Rooster</a></li>
+        <li routerLinkActive="active"><a routerLink="/my-schedule">Rooster</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <p class="navbar-text" *ngIf="user">{{user.email}}</p>
@@ -57,7 +57,7 @@
       <ul class="nav navbar-nav navbar-right">
         <p class="navbar-text" *ngIf="user">{{user.email}}</p>
         <li routerLinkActive="active" *ngIf="!userService.isAuthenticated()"><a routerLink="/login">Login</a></li>
-        <li (click)="logOut()" *ngIf="userService.isAuthenticated()"><a routerLink="/sportshalls">Logout</a></li>
+        <li (click)="logOut()" *ngIf="userService.isAuthenticated()"><a routerLink="/login">Logout</a></li>
         <li
           class="dropdown"
           appDropdown>

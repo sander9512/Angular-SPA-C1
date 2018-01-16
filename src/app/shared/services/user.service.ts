@@ -65,4 +65,12 @@ export class UserService {
   public isAuthenticated() {
     return this.token != null;
   }
+
+  public isLoggedIn() {
+    if (this.token != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

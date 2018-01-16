@@ -36,6 +36,11 @@ import {DxSchedulerModule} from 'devextreme-angular';
 import {TimesService} from './shared/services/times.service';
 import { ClosingTimeItemComponent } from './closing-time/closing-time-item/closing-time-item.component';
 import { ScheduleComponent } from './staff-schedule/schedule.component';
+import { PersonalScheduleComponent } from './staff-schedule/personal-schedule/personal-schedule.component';
+
+import { OnlyLoggedInUsersGuard } from './shared/guards/logged-in.guard';
+import { OnlyStaffGuard } from './shared/guards/staff.guard';
+import { OnlyProprietorsGuard } from './shared/guards/proprietor.guard';
 
 
 @NgModule({
@@ -65,6 +70,7 @@ import { ScheduleComponent } from './staff-schedule/schedule.component';
     SportshallScheduleComponent,
     ClosingTimeItemComponent,
     ScheduleComponent,
+    PersonalScheduleComponent,
 
   ],
   imports: [
@@ -76,7 +82,8 @@ import { ScheduleComponent } from './staff-schedule/schedule.component';
     DxSchedulerModule
   ],
   providers: [SportsHallsService, BookingsService, UserService, ProprietorService,
-    MaintenanceService, ClosingDayService, TimesService],
+    MaintenanceService, ClosingDayService, TimesService, OnlyLoggedInUsersGuard,
+    OnlyStaffGuard, OnlyProprietorsGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
