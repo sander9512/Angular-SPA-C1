@@ -32,7 +32,7 @@
         <li routerLinkActive="active"><a routerLink="/my-schedule">Rooster</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <p class="navbar-text" *ngIf="user">{{user.email}}</p>
+        <p class="navbar-text" *ngIf="user">{{user.name}}</p>
         <li routerLinkActive="active" *ngIf="!userService.isAuthenticated()"><a routerLink="/login">Login</a></li>
         <li (click)="logOut()" *ngIf="userService.isAuthenticated()"><a routerLink="/sportshalls">Logout</a></li>
         <li

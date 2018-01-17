@@ -7,6 +7,8 @@ import {User} from '../../shared/models/user.model';
 import {ProprietorService} from '../../shared/services/proprietor.service';
 import {Proprietor} from '../../shared/models/proprietor.model';
 import {Subscription} from 'rxjs/Subscription';
+import {SportsHallsService} from '../../shared/services/sportshall.service';
+import {SportsHall} from '../../shared/models/sportshall.model';
 
 @Component({
   selector: 'app-signup',
@@ -26,8 +28,11 @@ export class SignupComponent implements OnInit {
   subscription: Subscription;
   prop: Proprietor;
   selectedAccount: Proprietor;
+  selectedHall: SportsHall;
+  halls: SportsHall[];
 
-  constructor(private route: ActivatedRoute, private userService: UserService, private propService: ProprietorService) { }
+  constructor(private route: ActivatedRoute, private userService: UserService,
+              private propService: ProprietorService, private hallService: SportsHallsService) { }
 
   ngOnInit() {
     this.selectedRole = this.roles[1];
@@ -44,6 +49,11 @@ export class SignupComponent implements OnInit {
         this.proprietors = props;
       })
       .catch(error => console.log(error));
+    this.hallService.getSportsHalls()
+      .then(halls => {
+        this.halls = halls;
+      })
+      .catch(error => console.log(error));
   }
 
   onSignUp() {
@@ -52,6 +62,10 @@ export class SignupComponent implements OnInit {
     const user = new User({'_email': value.email, '_password': value.password, '_role': this.selectedRole.name});
     if (user.role === 'Verhuurder') {
       user.propID = this.selectedAccount.id;
+      user.name = this.selectedAccount.name;
+    } else if (user.role === 'Personeel') {
+      user.name = value.name;
+      user.hallID = this.selectedHall.id;
     }
     console.log(user);
     this.userService.register(user);
@@ -60,6 +74,10 @@ export class SignupComponent implements OnInit {
 
   onChangeRole(role) {
     this.selectedRole = role;
+  }
+  onChangeHall(hall) {
+    this.selectedHall = hall;
+    console.log(this.selectedHall);
   }
   onChangeAccount(account) {
   this.selectedAccount = account;
@@ -74,7 +92,8 @@ export class SignupComponent implements OnInit {
     this.signUpForm = new FormGroup({
       'email': new FormControl(userEmail, Validators.required),
       'password': new FormControl(userPassword, Validators.required),
-      'role': new FormControl(userRole)
+      'role': new FormControl(userRole),
+      'name': new FormControl()
     });
   }
 
