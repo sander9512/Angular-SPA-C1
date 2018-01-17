@@ -1,10 +1,20 @@
 export class User {
+
+  private _id: any;
   private _name: string;
   private _email: string;
   private _password: string;
   private _role: string;
   private _propID: number;
   private _hallID?: number;
+
+  get id(): any{
+    return this._id;
+  }
+
+  set id(value: any) {
+    this._id = value;
+  }
 
   get email(): string {
     return this._email;

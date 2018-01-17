@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { DxSchedulerModule } from 'devextreme-angular';
-import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute} from '@angular/router';
 import {ScheduleItem} from '../../shared/models/ScheduleItem';
+
+import {UserService} from '../../shared/services/user.service';
+import {User} from '../../shared/models/user.model';
+import {WorkDay} from '../../shared/models/workday.model';
+import {WorkdayService} from '../../shared/services/workday.service';
+import {Subject} from 'rxjs/Subject';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-personal-schedule',
@@ -11,12 +17,17 @@ import {ScheduleItem} from '../../shared/models/ScheduleItem';
 })
 export class PersonalScheduleComponent implements OnInit {
 
-  currentDate = new Date();
-  scheduleData: ScheduleItem[];
+  user: User;
+  subscription: Subscription;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private userService: UserService,
+              private workdayService: WorkdayService) {
+
+  }
 
   ngOnInit() {
+
+    // this.workdayService.getWorkDaysWithUserId(this.user.id);
   }
 
 }

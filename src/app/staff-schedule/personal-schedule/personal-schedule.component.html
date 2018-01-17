@@ -8,6 +8,6 @@
     [allowDeleting]="false">
   </dxo-editing>
   <div *dxTemplate="let schedule of 'scheduleTemplate'">
-    <i>{{schedule.text}}</i>
+    <p>{{ schedule.startDate | date: 'shortTime'}} - {{ schedule.endDate | date: 'shortTime'}}</p>
   </div>
 </dx-scheduler>
