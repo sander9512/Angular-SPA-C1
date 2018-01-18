@@ -3,6 +3,7 @@ import {Subject} from 'rxjs/Subject';
 import {WorkDay} from '../models/workday.model';
 import {environment} from '../../../environments/environment';
 import {Http, Headers} from '@angular/http';
+import {WorkdaySchedule} from "../models/workday-schedule.model";
 
 @Injectable()
 export class WorkdayService {
@@ -28,6 +29,20 @@ export class WorkdayService {
         return Promise.reject(error.message || error);
       });
   }
+  addWorkday(workday: WorkDay): Promise<any> {
+    console.log('workday toevoegen');
+
+    return this.http.post(this.serverUrl, workday, { headers: this.headers })
+      .toPromise()
+      .then(response => {
+        console.dir(response.json());
+        return response.json() as any;
+      })
+      .catch(error => {
+        console.log('handleError');
+        return Promise.reject(error.message || error);
+      });
+  }
 
   getWorkDaysWithUserId(id): Promise<WorkDay[]> {
     return this.http.get(this.serverUrl + '/user/' + id, {headers: this.headers})
@@ -42,11 +57,12 @@ export class WorkdayService {
         return Promise.reject(error.message || error);
       });
   }
-  getFakeWorkDays(): WorkDay[] {
-    return this.fakeWorkDays;
-  }
-  addFakeWorkDay(workday: WorkDay) {
-    this.fakeWorkDays.push(workday);
-    console.log(this.fakeWorkDays, 'length', this.fakeWorkDays.length);
-  }
+ createWorkDayScheduleItems(workdays: WorkDay[]): WorkdaySchedule[] {
+    const WorkdaySchedules = new Array<WorkdaySchedule>();
+    for (const i of workdays) {
+      const workDaySchedule = new WorkdaySchedule(i.text, i.userID, i.startTime, i.endTime);
+      WorkdaySchedules.push(workDaySchedule);
+    }
+    return WorkdaySchedules;
+ }
 }

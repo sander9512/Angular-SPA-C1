@@ -13,6 +13,7 @@ import DataSource from 'devextreme/data/data_source';
 import {Staff} from '../shared/models/staff.model';
 import {WorkDay} from '../shared/models/workday.model';
 import {WorkdayService} from '../shared/services/workday.service';
+import {WorkdaySchedule} from "../shared/models/workday-schedule.model";
 
 @Component({
   selector: 'app-schedule',
@@ -25,8 +26,7 @@ export class ScheduleComponent implements OnInit {
   scheduleData: ScheduleItem[];
   startDayHour = 8;
   currentUser: User;
-  dataSource: DataSource;
-  resources = [];
+  workDaySchedules = new Array<WorkdaySchedule>();
   halls = new Array<SportsHall>();
   staff: User[];
   staffItems: Staff[];
@@ -37,19 +37,6 @@ export class ScheduleComponent implements OnInit {
 
   ngOnInit() {
       this.currentUser = this.authService.getUser();
-    // this.subscription = this.hallService.hallsChanged
-    //   .subscribe(
-    //     (halls: SportsHall[]) => {
-    //       this.halls = halls;
-    //     }
-    //   );
-    //   this.hallService.getHallsWithOwner(this.currentUser.propID)
-    //     .then(halls => {
-    //       this.halls = halls;
-    //       console.log(this.halls);
-    //     })
-    //     .catch(error => console.log(error));
-    //   console.log(this.halls[0].id);
       this.userService.getStaffWithId(1)
         .then(staff => {
           this.staff = staff;
@@ -58,27 +45,13 @@ export class ScheduleComponent implements OnInit {
           console.log('items', this.staffItems);
         })
         .catch(error => console.log(error));
-    // this.resources = [
-    //   // "Room" resource kind
-    //   {
-    //     fieldExpr: 'roomId',
-    //     dataSource: [
-    //       { id: 1, text: 'Room101', color: 'green' },
-    //       { id: 2, text: 'Room102', color: 'red' },
-    //       // ...
-    //     ]
-    //   },
-    //   // "Teacher" resource kind
-    //   {
-    //     fieldExpr: 'teacherId',
-    //     dataSource: [
-    //       { id: 1, text: 'Sandra Johnson', color: 'yellow' },
-    //       { id: 2, text: 'John Heart', color: 'blue' },
-    //       // ...
-    //     ],
-    //     allowMultiple: true
-    //   }
-    // ];
+      this.workdayService.getWorkDays()
+        .then(workdays => {
+          this.workDays = workdays;
+          this.workDaySchedules = this.workdayService.createWorkDayScheduleItems(this.workDays);
+          console.log('schedules', this.workDaySchedules);
+        })
+        .catch(error => console.log(error));
   }
   onAppointmentAdded(e) {
       console.log('add method called');
@@ -96,10 +69,10 @@ export class ScheduleComponent implements OnInit {
     // workDay.endDate = endTime;
     // workDay.userID = user._id;
     // workDay.text = user.name;
-      const workDay = new WorkDay(user._id, user.name, startTime, endTime);
+      const workDay = new WorkDay(user._id, 1, user.name, startTime, endTime);
       console.log(workDay);
-      this.workdayService.addFakeWorkDay(workDay);
-      this.workDays = this.workdayService.getFakeWorkDays();
+      this.workdayService.addWorkday(workDay);
+      this.getWorkDays();
 
   }
   onAppointmentUpdated(e) {
@@ -107,5 +80,13 @@ export class ScheduleComponent implements OnInit {
   }
   onAppointmentDeleted(e) {
       console.log(e);
+  }
+  getWorkDays() {
+      this.workdayService.getWorkDays()
+        .then(workdays => {
+          this.workDays = workdays;
+          this.workDaySchedules = this.workdayService.createWorkDayScheduleItems(this.workDays);
+        })
+        .catch(error => console.log(error));
   }
 }

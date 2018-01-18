@@ -3,16 +3,27 @@ import {User} from './user.model';
 export class WorkDay {
   private _id: string;
   private _userID: string;
+  private _hallID: number;
   private _text: string;
-  private _startDate: Date;
-  private _endDate: Date;
+  private _startTime: Date;
+  private _endTime: Date;
 
-  constructor(userID: string, text: string, start: Date, end: Date) {
+  constructor(userID: string, hallID: number, text: string, start: Date, end: Date) {
     this.userID = userID;
+    this.hallID = hallID;
     this.text = text;
-    this.startDate = start;
-    this.endDate = end;
+    this.startTime = start;
+    this.endTime = end;
   }
+
+  get hallID(): number {
+    return this._hallID;
+  }
+
+  set hallID(value: number) {
+    this._hallID = value;
+  }
+
   get id(): string {
     return this._id;
   }
@@ -36,20 +47,19 @@ export class WorkDay {
   set text(value: string) {
     this._text = value;
   }
-
-  get startDate(): Date {
-    return this._startDate;
+  get startTime(): Date {
+    return this._startTime;
   }
 
-  set startDate(value: Date) {
-    this._startDate = value;
+  set startTime(value: Date) {
+    this._startTime = value;
   }
 
-  get endDate(): Date {
-    return this._endDate;
+  get endTime(): Date {
+    return this._endTime;
   }
 
-  set endDate(value: Date) {
-    this._endDate = value;
+  set endTime(value: Date) {
+    this._endTime = value;
   }
 }
