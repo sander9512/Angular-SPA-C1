@@ -1,15 +1,15 @@
 import {User} from './user.model';
 
 export class WorkDay {
-  private _id: string;
-  private _userID: string;
+  private __id: string;
+  private _userId: string;
   private _hallID: number;
   private _text: string;
   private _startTime: Date;
   private _endTime: Date;
 
   constructor(userID: string, hallID: number, text: string, start: Date, end: Date) {
-    this.userID = userID;
+    this.userId = userID;
     this.hallID = hallID;
     this.text = text;
     this.startTime = start;
@@ -23,23 +23,20 @@ export class WorkDay {
   set hallID(value: number) {
     this._hallID = value;
   }
-
-  get id(): string {
-    return this._id;
+  get _id(): string {
+    return this.__id;
   }
 
-  set id(value: string) {
-    this._id = value;
+  set _id(value: string) {
+    this.__id = value;
+  }
+  get userId(): string {
+    return this._userId;
+  }
+  set userId(value: string) {
+    this._userId = value;
   }
 
-
-  get userID(): string {
-    return this._userID;
-  }
-
-  set userID(value: string) {
-    this._userID = value;
-  }
   get text(): string {
     return this._text;
   }

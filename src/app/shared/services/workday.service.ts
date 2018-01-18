@@ -71,10 +71,24 @@ export class WorkdayService {
         return Promise.reject(error.message || error);
       });
   }
+  deleteWorkday(id): Promise<any> {
+    return this.http.delete(this.serverUrl + '/' + id, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.dir(response.json());
+        return response.json();
+      })
+      .catch(error => {
+        console.log('error');
+        return Promise.reject(error.message || error);
+      });
+  }
  createWorkDayScheduleItems(workdays: WorkDay[]): WorkdaySchedule[] {
     const WorkdaySchedules = new Array<WorkdaySchedule>();
     for (const i of workdays) {
-      const workDaySchedule = new WorkdaySchedule(i.text, i.userID, i.startTime, i.endTime);
+      const workDaySchedule = new WorkdaySchedule(i.text, i.userId, i.startTime, i.endTime);
+      workDaySchedule._id = i._id;
+      console.log(workDaySchedule);
       WorkdaySchedules.push(workDaySchedule);
     }
     return WorkdaySchedules;

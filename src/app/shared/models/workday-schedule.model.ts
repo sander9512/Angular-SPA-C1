@@ -1,4 +1,5 @@
 export class WorkdaySchedule {
+  private __id: string;
   private _text: string;
   private _userID: string;
   private _startDate: Date;
@@ -10,6 +11,15 @@ export class WorkdaySchedule {
     this._userID = userID;
     this._startDate = startDate;
     this._endDate = endDate;
+  }
+
+
+  get _id(): string {
+    return this.__id;
+  }
+
+  set _id(value: string) {
+    this.__id = value;
   }
 
   get text(): string {

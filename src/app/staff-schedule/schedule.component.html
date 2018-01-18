@@ -9,6 +9,7 @@
   <div *dxTemplate="let workday of 'workDayTemplate'">
     <i>{{workday.text}}</i>
     <p>{{ workday.startDate | date: 'shortTime'}} - {{ workday.endDate | date: 'shortTime'}}</p>
+    <p class="hidden"> {{workday.id}}</p>
   </div>
   <dxi-resource
   fieldExpr="userID"

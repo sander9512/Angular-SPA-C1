@@ -80,6 +80,12 @@ export class ScheduleComponent implements OnInit {
   // }
   onAppointmentDeleted(e) {
       console.log(e);
+      console.log('id', e.appointmentData._id);
+      this.workdayService.deleteWorkday(e.appointmentData._id)
+        .then(() => {
+        this.getWorkDays();
+        })
+        .catch(error => console.log(error));
   }
   getWorkDays() {
       this.workdayService.getWorkDaysWithHallId(this.id)
