@@ -57,6 +57,20 @@ export class WorkdayService {
         return Promise.reject(error.message || error);
       });
   }
+
+  getWorkDaysWithHallId(id): Promise<WorkDay[]> {
+    return this.http.get(this.serverUrl + '/hall/' + id, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.dir(response.json());
+        this.workdays = response.json() as WorkDay[];
+        return this.workdays;
+      })
+      .catch(error => {
+        console.log('handleError');
+        return Promise.reject(error.message || error);
+      });
+  }
  createWorkDayScheduleItems(workdays: WorkDay[]): WorkdaySchedule[] {
     const WorkdaySchedules = new Array<WorkdaySchedule>();
     for (const i of workdays) {

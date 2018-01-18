@@ -58,4 +58,8 @@ export class SportshallDetailComponent implements OnInit {
   onClosingDay() {
     this.router.navigate(['new-closingtime'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
+
+  onStaffSchedule() {
+    this.router.navigate(['staff/schedule'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
+  }
 }

@@ -27,9 +27,10 @@ export class ScheduleComponent implements OnInit {
   startDayHour = 8;
   currentUser: User;
   workDaySchedules = new Array<WorkdaySchedule>();
-  halls = new Array<SportsHall>();
+  hall: SportsHall;
   staff: User[];
   staffItems: Staff[];
+  id: number;
   subscription: Subscription;
   workDays = new Array<WorkDay>();
     constructor(private route: ActivatedRoute, private hallService: SportsHallsService, private authService: AuthService,
@@ -37,7 +38,17 @@ export class ScheduleComponent implements OnInit {
 
   ngOnInit() {
       this.currentUser = this.authService.getUser();
-      this.userService.getStaffWithId(1)
+      this.route.params
+        .subscribe(params => {
+          this.id = params['id'];
+          this.hallService.getSportsHall(this.id)
+            .then(hall => {
+              this.hall = hall;
+              console.log('hall retrieved', this.hall);
+            })
+            .catch(error => console.log(error));
+        });
+      this.userService.getStaffWithId(this.id)
         .then(staff => {
           this.staff = staff;
           this.staffItems = this.userService.createStaffItems(this.staff);
@@ -45,13 +56,7 @@ export class ScheduleComponent implements OnInit {
           console.log('items', this.staffItems);
         })
         .catch(error => console.log(error));
-      this.workdayService.getWorkDays()
-        .then(workdays => {
-          this.workDays = workdays;
-          this.workDaySchedules = this.workdayService.createWorkDayScheduleItems(this.workDays);
-          console.log('schedules', this.workDaySchedules);
-        })
-        .catch(error => console.log(error));
+      this.getWorkDays();
   }
   onAppointmentAdded(e) {
       console.log('add method called');
@@ -64,28 +69,24 @@ export class ScheduleComponent implements OnInit {
       }
       const startTime = e.appointmentData.startDate;
       const endTime = e.appointmentData.endDate;
-    // const workDay = new WorkDay();
-    // workDay.startDate = startTime;
-    // workDay.endDate = endTime;
-    // workDay.userID = user._id;
-    // workDay.text = user.name;
-      const workDay = new WorkDay(user._id, 1, user.name, startTime, endTime);
+      const workDay = new WorkDay(user._id, this.id, user.name, startTime, endTime);
       console.log(workDay);
       this.workdayService.addWorkday(workDay);
       this.getWorkDays();
 
   }
-  onAppointmentUpdated(e) {
-      console.log(e);
-  }
+  // onAppointmentUpdated(e) {
+  //     console.log(e);
+  // }
   onAppointmentDeleted(e) {
       console.log(e);
   }
   getWorkDays() {
-      this.workdayService.getWorkDays()
+      this.workdayService.getWorkDaysWithHallId(this.id)
         .then(workdays => {
           this.workDays = workdays;
           this.workDaySchedules = this.workdayService.createWorkDayScheduleItems(this.workDays);
+          console.log('workdays', this.workDaySchedules);
         })
         .catch(error => console.log(error));
   }

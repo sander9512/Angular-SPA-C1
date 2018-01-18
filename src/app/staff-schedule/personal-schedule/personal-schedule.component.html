@@ -1,13 +1,23 @@
-<dx-scheduler
-  [dataSource]="scheduleData"
-  appointmentTemplate="scheduleTemplate"
-  [currentDate]="currentDate">
-  <dxo-editing
-    [allowAdding]="false"
-    [allowUpdating]="false"
-    [allowDeleting]="false">
-  </dxo-editing>
-  <div *dxTemplate="let schedule of 'scheduleTemplate'">
-    <p>{{ schedule.startDate | date: 'shortTime'}} - {{ schedule.endDate | date: 'shortTime'}}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Rooster {{ user?.name }} bij sporthal {{ hall?.name}}</h2>
+    </div>
   </div>
+</div>
+<dx-scheduler
+  [dataSource]="workdaySchedules"
+  appointmentTemplate="workDayTemplate"
+  [currentDate]="currentDate"
+  [startDayHour]="startDayHour">
+  <div *dxTemplate="let workday of 'workDayTemplate'">
+    <i>{{workday.text}}</i>
+    <p>{{ workday.startDate | date: 'shortTime'}} - {{ workday.endDate | date: 'shortTime'}}</p>
+  </div>
+  <dxo-editing #editingOptions
+               [allowAdding]="false"
+               [allowUpdating]="false"
+               [allowDeleting]="false">
+
+  </dxo-editing>
 </dx-scheduler>

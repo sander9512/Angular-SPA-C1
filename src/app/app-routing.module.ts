@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     { path: '', component: BookingListComponent },
     { path: ':id', component: BookingDetailComponent }
   ]},
-  { path: 'staff/schedule', canActivate: [OnlyLoggedInUsersGuard, OnlyProprietorsGuard], component: ScheduleComponent },
+  { path: 'halls/:id/staff/schedule', canActivate: [OnlyLoggedInUsersGuard, OnlyProprietorsGuard], component: ScheduleComponent },
   { path: 'my-schedule', canActivate: [OnlyLoggedInUsersGuard, OnlyStaffGuard], component: PersonalScheduleComponent },
   { path: 'login', component: SigninComponent},
   { path: 'signup', component: SignupComponent}
