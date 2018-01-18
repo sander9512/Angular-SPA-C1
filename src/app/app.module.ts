@@ -17,7 +17,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import {AppRoutingModule} from './app-routing.module';
 import {BookingsService} from './shared/services/booking.service';
-import {UserService} from './shared/services/user.service';
+import {AuthService} from './shared/services/auth.service';
 import { SportshallDetailComponent } from './sportshalls/sportshall-detail/sportshall-detail.component';
 import { SportshallTimeItemComponent } from './sportshalls/sportshall-time-item/sportshall-time-item.component';
 import { BookingItemSmallComponent } from './bookings/booking-item-small/booking-item-small.component';
@@ -42,6 +42,7 @@ import { WorkdayService } from './shared/services/workday.service';
 import { OnlyLoggedInUsersGuard } from './shared/guards/logged-in.guard';
 import { OnlyStaffGuard } from './shared/guards/staff.guard';
 import { OnlyProprietorsGuard } from './shared/guards/proprietor.guard';
+import {UserService} from "./shared/services/user.service";
 
 
 @NgModule({
@@ -83,9 +84,9 @@ import { OnlyProprietorsGuard } from './shared/guards/proprietor.guard';
     DxSchedulerModule,
     DxButtonModule
   ],
-  providers: [SportsHallsService, BookingsService, UserService, ProprietorService,
+  providers: [SportsHallsService, BookingsService, AuthService, ProprietorService,
     MaintenanceService, ClosingDayService, TimesService, OnlyLoggedInUsersGuard,
-    OnlyStaffGuard, OnlyProprietorsGuard, WorkdayService],
+    OnlyStaffGuard, OnlyProprietorsGuard, WorkdayService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

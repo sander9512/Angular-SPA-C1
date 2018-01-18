@@ -1,11 +1,21 @@
 <dx-scheduler
-  [dataSource]="appointments"
-  appointmentTemplate="scheduleTemplate"
+  [dataSource]="workDays"
+  appointmentTemplate="workDayTemplate"
   [currentDate]="currentDate"
   [startDayHour]="startDayHour"
   (onAppointmentAdded)="onAppointmentAdded($event)"
   (onAppointmentUpdated)="onAppointmentUpdated($event)"
   (onAppointmentDeleted)="onAppointmentDeleted($event)">
+  <div *dxTemplate="let workday of 'workDayTemplate'">
+    <i>{{workday.text}}</i>
+    <p>{{ workday.startDate | date: 'shortTime'}} - {{ workday.endDate | date: 'shortTime'}}</p>
+  </div>
+  <dxi-resource
+  fieldExpr="userID"
+  label="Naam"
+  [allowMultiple]="false"
+  [dataSource]="staffItems">
+  </dxi-resource>
   <dxo-editing #editingOptions
                [allowAdding]="true"
                [allowUpdating]="true"

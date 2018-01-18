@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
-import {UserService} from '../../shared/services/user.service';
+import {AuthService} from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -12,7 +12,7 @@ export class SigninComponent implements OnInit {
   editMode = false;
   signInForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, private userService: UserService) { }
+  constructor(private route: ActivatedRoute, private userService: AuthService) { }
 
   ngOnInit() {
 

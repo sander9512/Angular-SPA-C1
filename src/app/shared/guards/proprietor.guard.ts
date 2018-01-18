@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
-import { UserService } from '../services/user.service';
+import { AuthService } from '../services/auth.service';
 import { User } from '../models/user.model';
 import {Subject} from 'rxjs/Subject';
 import {Subscription} from 'rxjs/Subscription';
@@ -11,7 +11,7 @@ export class OnlyProprietorsGuard implements CanActivate {
   user: any;
   subscription: Subscription;
 
-  constructor(private userService: UserService){
+  constructor(private userService: AuthService){
     this.user = userService.user;
     this.subscription = userService.userChange.subscribe((value) => {
       this.user = value;

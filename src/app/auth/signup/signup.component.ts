@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Role } from '../../shared/models/role.model';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
-import {UserService} from '../../shared/services/user.service';
+import {AuthService} from '../../shared/services/auth.service';
 import {User} from '../../shared/models/user.model';
 import {ProprietorService} from '../../shared/services/proprietor.service';
 import {Proprietor} from '../../shared/models/proprietor.model';
@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
   selectedHall: SportsHall;
   halls: SportsHall[];
 
-  constructor(private route: ActivatedRoute, private userService: UserService,
+  constructor(private route: ActivatedRoute, private userService: AuthService,
               private propService: ProprietorService, private hallService: SportsHallsService) { }
 
   ngOnInit() {

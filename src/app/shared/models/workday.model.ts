@@ -2,12 +2,17 @@ import {User} from './user.model';
 
 export class WorkDay {
   private _id: string;
-  private _user: User;
-  private _startTime: Date;
-  private _endTime: Date;
-  private _date: Date;
+  private _userID: string;
+  private _text: string;
+  private _startDate: Date;
+  private _endDate: Date;
 
-
+  constructor(userID: string, text: string, start: Date, end: Date) {
+    this.userID = userID;
+    this.text = text;
+    this.startDate = start;
+    this.endDate = end;
+  }
   get id(): string {
     return this._id;
   }
@@ -16,38 +21,35 @@ export class WorkDay {
     this._id = value;
   }
 
-  get user(): User {
-    return this._user;
+
+  get userID(): string {
+    return this._userID;
   }
 
-  set user(value: User) {
-    this._user = value;
+  set userID(value: string) {
+    this._userID = value;
+  }
+  get text(): string {
+    return this._text;
   }
 
-  get startTime(): Date {
-    return this._startTime;
+  set text(value: string) {
+    this._text = value;
   }
 
-  set startTime(value: Date) {
-    this._startTime = value;
+  get startDate(): Date {
+    return this._startDate;
   }
 
-  get endTime(): Date {
-    return this._endTime;
+  set startDate(value: Date) {
+    this._startDate = value;
   }
 
-  set endTime(value: Date) {
-    this._endTime = value;
+  get endDate(): Date {
+    return this._endDate;
   }
 
-  get date(): Date {
-    return this._date;
-  }
-
-  set date(value: Date) {
-    this._date = value;
-  }
-  constructor(values: Object = {}) {
-    Object.assign(this, values);
+  set endDate(value: Date) {
+    this._endDate = value;
   }
 }

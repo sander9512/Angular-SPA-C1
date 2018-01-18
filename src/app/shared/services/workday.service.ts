@@ -10,6 +10,7 @@ export class WorkdayService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.serverUrl + '/workdays'; // URL to web api
   private workdays: WorkDay[];
+  private fakeWorkDays = new Array<WorkDay>();
 
   constructor(private http: Http) {
   }
@@ -40,5 +41,12 @@ export class WorkdayService {
         console.log('handleError');
         return Promise.reject(error.message || error);
       });
+  }
+  getFakeWorkDays(): WorkDay[] {
+    return this.fakeWorkDays;
+  }
+  addFakeWorkDay(workday: WorkDay) {
+    this.fakeWorkDays.push(workday);
+    console.log(this.fakeWorkDays, 'length', this.fakeWorkDays.length);
   }
 }

@@ -3,7 +3,7 @@ import { DxSchedulerModule } from 'devextreme-angular';
 import {ActivatedRoute} from '@angular/router';
 import {ScheduleItem} from '../../shared/models/ScheduleItem';
 
-import {UserService} from '../../shared/services/user.service';
+import {AuthService} from '../../shared/services/auth.service';
 import {User} from '../../shared/models/user.model';
 import {WorkDay} from '../../shared/models/workday.model';
 import {WorkdayService} from '../../shared/services/workday.service';
@@ -20,7 +20,7 @@ export class PersonalScheduleComponent implements OnInit {
   user: User;
   subscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private userService: UserService,
+  constructor(private route: ActivatedRoute, private userService: AuthService,
               private workdayService: WorkdayService) {
 
   }

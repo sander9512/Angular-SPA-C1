@@ -1,6 +1,6 @@
 export class User {
 
-  private _id: any;
+  private __id: any;
   private _name: string;
   private _email: string;
   private _password: string;
@@ -8,12 +8,12 @@ export class User {
   private _propID: number;
   private _hallID?: number;
 
-  get id(): any{
-    return this._id;
+  get _id(): any{
+    return this.__id;
   }
 
-  set id(value: any) {
-    this._id = value;
+  set _id(value: any) {
+    this.__id = value;
   }
 
   get email(): string {
