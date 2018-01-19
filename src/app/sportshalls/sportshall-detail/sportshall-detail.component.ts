@@ -30,7 +30,7 @@ export class SportshallDetailComponent implements OnInit {
             console.log(hall);
           })
           .catch(error => console.log(error));
-        this.bookingService.getBookingsWithHall(this.id)
+        this.bookingService.getTodaysBookings(this.id)
           .then(bookings => {
             this.bookings = bookings;
           })

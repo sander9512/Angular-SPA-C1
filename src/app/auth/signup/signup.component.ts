@@ -30,6 +30,7 @@ export class SignupComponent implements OnInit {
   selectedAccount: Proprietor;
   selectedHall: SportsHall;
   halls: SportsHall[];
+  emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
 
   constructor(private route: ActivatedRoute, private userService: AuthService,
               private propService: ProprietorService, private hallService: SportsHallsService) { }
@@ -92,8 +93,7 @@ export class SignupComponent implements OnInit {
     this.signUpForm = new FormGroup({
       'email': new FormControl(userEmail, Validators.required),
       'password': new FormControl(userPassword, Validators.required),
-      'role': new FormControl(userRole),
-      'name': new FormControl()
+      'name': new FormControl(null)
     });
   }
 
