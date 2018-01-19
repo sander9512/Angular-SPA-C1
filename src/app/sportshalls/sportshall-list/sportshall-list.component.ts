@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SportsHall} from '../../shared/models/sportshall.model';
 import {SportsHallsService} from '../../shared/services/sportshall.service';
 import {Subscription} from 'rxjs/Subscription';
-import {UserService} from '../../shared/services/user.service';
+import {AuthService} from '../../shared/services/auth.service';
 import {User} from '../../shared/models/user.model';
 
 
@@ -16,7 +16,7 @@ export class SportshallListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   currentUser: User;
 
-  constructor(private sportsHallsService: SportsHallsService, private userService: UserService) { }
+  constructor(private sportsHallsService: SportsHallsService, private userService: AuthService) { }
 
   ngOnInit() {
     this.currentUser = this.userService.getUser();

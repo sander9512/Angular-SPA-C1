@@ -9,41 +9,22 @@
       <ul class="nav navbar-nav">
         <li routerLinkActive="active"><a routerLink="/sportshalls">Sporthallen</a></li>
         <li routerLinkActive="active"><a routerLink="/bookings">Boekingen</a>
-        <li routerLinkActive="active"><a routerLink="/staff/schedule">Personeel</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <p class="navbar-text" *ngIf="user">{{user.email}}</p>
+        <p class="navbar-text" *ngIf="user">{{user.name}}</p>
         <li routerLinkActive="active" *ngIf="!userService.isAuthenticated()"><a routerLink="/login">Login</a></li>
         <li (click)="logOut()" *ngIf="userService.isAuthenticated()"><a routerLink="/sportshalls">Logout</a></li>
-        <li
-          class="dropdown"
-          appDropdown>
-          <a style="cursor: pointer" class="dropdown-toggle">Manage <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a style="cursor: pointer">Save data</a></li>
-            <li><a style="cursor: pointer">Fetch data</a></li>
-          </ul>
-        </li>
       </ul>
     </div>
 
     <div class="navbar-default" *ngIf="user.role === 'Personeel'">
       <ul class="nav navbar-nav">
-        <li routerLinkActive="active"><a routerLink="/staff/schedule">Rooster</a></li>
+        <li routerLinkActive="active"><a routerLink="/my-schedule">Rooster</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <p class="navbar-text" *ngIf="user">{{user.email}}</p>
+        <p class="navbar-text" *ngIf="user">{{user.name}}</p>
         <li routerLinkActive="active" *ngIf="!userService.isAuthenticated()"><a routerLink="/login">Login</a></li>
         <li (click)="logOut()" *ngIf="userService.isAuthenticated()"><a routerLink="/sportshalls">Logout</a></li>
-        <li
-          class="dropdown"
-          appDropdown>
-          <a style="cursor: pointer" class="dropdown-toggle">Manage <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a style="cursor: pointer">Save data</a></li>
-            <li><a style="cursor: pointer">Fetch data</a></li>
-          </ul>
-        </li>
       </ul>
     </div>
 </div>
@@ -52,21 +33,11 @@
       <ul class="nav navbar-nav">
         <li routerLinkActive="active"><a routerLink="/sportshalls">Sporthallen</a></li>
         <li routerLinkActive="active"><a routerLink="/bookings">Boekingen</a>
-        <li routerLinkActive="active"><a routerLink="/staff/schedule">Personeel</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <p class="navbar-text" *ngIf="user">{{user.email}}</p>
         <li routerLinkActive="active" *ngIf="!userService.isAuthenticated()"><a routerLink="/login">Login</a></li>
-        <li (click)="logOut()" *ngIf="userService.isAuthenticated()"><a routerLink="/sportshalls">Logout</a></li>
-        <li
-          class="dropdown"
-          appDropdown>
-          <a style="cursor: pointer" class="dropdown-toggle">Manage <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a style="cursor: pointer">Save data</a></li>
-            <li><a style="cursor: pointer">Fetch data</a></li>
-          </ul>
-        </li>
+        <li (click)="logOut()" *ngIf="userService.isAuthenticated()"><a routerLink="/login">Logout</a></li>
       </ul>
     </div>
 

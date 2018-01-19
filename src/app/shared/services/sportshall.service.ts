@@ -11,30 +11,6 @@ export class SportsHallsService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.serverUrl + '/halls'; // URL to web api
   private halls: SportsHall[];
-  // private sportsHalls: SportsHall[] = [
-  //   new SportsHall(
-  //       'Sporty Times',
-  //       'Breda',
-  //       'Hoofdstraat',
-  //       '12a',
-  //       '0761234567'
-  //   ),
-  //   new SportsHall(
-  //     'Time2Bfit',
-  //     'Breda',
-  //     'Anderstraat',
-  //     '13a',
-  //     '0760234567'
-  //   ),
-  //   new SportsHall(
-  //     'RIP fat',
-  //     'Tilburg',
-  //     'Tilburgsteeg',
-  //     '6c',
-  //     '0611234567'
-  //   )
-  // ];
-
   constructor(private http: Http) {
   }
   // _getSportsHalls() {

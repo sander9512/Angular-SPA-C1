@@ -1,16 +1,16 @@
-<div class="row">
+<div class="row list-group-item">
   <div class="col-xs-12">
     <p>
-      Datum: {{ booking.date }}
+      Datum: {{ booking?.date | date: 'shortDate' }}
     </p>
     <p>
-      Tijd: {{ booking.startTime }} - {{ booking.endTime }}
+      Tijd: {{ booking?.startTime | date: 'shortTime' }} - {{ booking?.endTime | date: 'shortTime'}}
     </p>
     <p>
-      Activiteit: {{ booking.activity.name }}
+      Activiteit: {{ booking?.activity.name }}
     </p>
     <p>
-      Zaal: {{ booking.room.name }}
+      Zaal: {{ booking?.room.roomNumber }}
     </p>
   </div>
 </div>

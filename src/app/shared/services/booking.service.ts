@@ -57,6 +57,20 @@ export class BookingsService {
         return Promise.reject(error.message || error);
       });
   }
+  getTodaysBookings(id: number): Promise<Booking[]> {
+    console.log('id', id);
+    return this.http.get(this.serverUrl + '/date/' + id, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.log(response);
+        this.bookings = response.json() as Booking[];
+        return this.bookings;
+      })
+      .catch(error => {
+        console.log(error);
+        return Promise.reject(error.message || error);
+      });
+  }
   createScheduleData(bookings: Booking[]): ScheduleItem[] {
     this.items.length = 0;
     for (let i of bookings) {
